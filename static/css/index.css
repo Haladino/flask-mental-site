@@ -1,0 +1,15 @@
+.text-large {
+    font-size: 400%;
+}
+
+.text-medium {
+    font-size: 250%;
+}
+
+.text-small {
+    font-size: 150%;
+}
+
+body, html {
+    height: 100%;
+}

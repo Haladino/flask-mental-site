@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+<style>
+    .bg {
+        background-image: url("/static/images/background.jpg");
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+<div class="bg">
+
+    <div class="container">
+        <p class="text-large">Mentálhigiénés segítő beszélgetés</p>
+        <p class="text-small">Jövőfókuszú megoldásokkal</p>
+    </div>
+
+    <div class="col-xs-12" style="height:100px;"></div>
+
+    <div class="container">
+        {% for line in text %}
+        <div class="row">
+            <div class="col text-center">
+                <p class="align-middle text-medium text-primary"> {{ line }} </p>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row">
+            <div class="col text-center">
+                <form method="post">
+                    <input type="submit" class="btn btn-primary" value="Kapcsolat" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}
