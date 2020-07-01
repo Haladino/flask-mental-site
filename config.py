@@ -1,4 +1,5 @@
 import os
+from app import app
 
 
 LOC = os.path.dirname(os.path.realpath(__file__))

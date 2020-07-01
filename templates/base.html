@@ -1,31 +1,58 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href="css/addons/flag.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="{{ url_for('index') }}">HelloMenta</a>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">HelloMenta</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ url_for('index') }}">Kezdőlap</a></li>
+                    <li><a href="{{ url_for('about') }}">Rólunk</a></li>
+                    <li><a href="{{ url_for('services') }}">Szolgáltatások</a></li>
+                    <li><a href="{{ url_for('contact') }}">Kapcsolat</a></li>
+                    <li>
+                        {% if en %}
+                             <form method="post" action="{{ url_for('change_language') }}">
+                                <button type="submit" name="lang", value="hu">
+                                    Magyar
+                                </button>
+                            </form>
+                        {% else %}
+                            <form method="post" action="{{ url_for('change_language') }}">
+                                <button type="submit" name="lang", value="en">
+                                    English
+                                </button>
+                            </form>
+                        {% endif %}
+
+                    </li>
+                </ul>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ url_for('index') }}">Kezdőlap</a></li>
-                <li><a href="{{ url_for('about') }}">Rólunk</a></li>
-                <li><a href="{{ url_for('services') }}">Szolgáltatások</a></li>
-                <li><a href="{{ url_for('contact') }}">Kapcsolat</a></li>
-            </ul>
-        </div>
-    </nav>
-</head>
+        </nav>
+    </head>
 
-<body>
-    {% block content %}
+    <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
 
-    {% endblock content %}
-</body>
+        {% block content %}
+
+        {% endblock content %}
+    </body>
 
 </html>
