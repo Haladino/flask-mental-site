@@ -28,13 +28,14 @@ def about():
 @app.route('/kapcsolat')
 @app.route('/kapcsolat/<name>')
 def contact(name=None):
+    lang = session.get('lang', 'hu')
     if name:
         if name == "Simonka Enikő":
-            return render_template('simonkaeniko.html')
+            return render_template('simonkaeniko.html', lang=lang)
         elif name == "Tomor Andrea":
-            return render_template('tomorandrea.html')
+            return render_template('tomorandrea.html', lang=lang)
     else:
-        return render_template('contact.html')
+        return render_template('contact.html', lang=lang)
 
 
 @app.route('/en/services')

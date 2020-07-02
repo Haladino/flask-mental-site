@@ -34,7 +34,11 @@
         <div class="row">
             <div class="col text-center">
                 <form method="post">
-                    <input type="submit" class="btn btn-primary" value="Kapcsolat" />
+                    {% if lang == 'en' %}
+                        <input type="submit" class="btn btn-primary" value="Contact" />
+                    {% else %}
+                        <input type="submit" class="btn btn-primary" value="Kapcsolat" />
+                    {% endif %}
                 </form>
             </div>
         </div>

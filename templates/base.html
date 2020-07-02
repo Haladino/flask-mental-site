@@ -14,26 +14,22 @@
                     <a class="navbar-brand" href="{{ url_for('index') }}">HelloMenta</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ url_for('index') }}">Kezdőlap</a></li>
-                    <li><a href="{{ url_for('about') }}">Rólunk</a></li>
-                    <li><a href="{{ url_for('services') }}">Szolgáltatások</a></li>
-                    <li><a href="{{ url_for('contact') }}">Kapcsolat</a></li>
+                    <li><a href="{{ url_for('index') }}"> {% if lang == 'en' %} Index {% else %} Kezdőlap {% endif %} </a></li>
+                    <li><a href="{{ url_for('about') }}"> {% if lang == 'en' %} About {% else %} Rólunk {% endif %} </a></li>
+                    <li><a href="{{ url_for('services') }}"> {% if lang == 'en' %} Services {% else %} Szolgáltatások {% endif %} </a></li>
+                    <li><a href="{{ url_for('contact') }}"> {% if lang == 'en' %} Contact {% else %} Kapcsolat {% endif %} </a></li>
                     <li>
-                        {% if lang %}
+                        <form method="post" action="{{ url_for('change_language') }}">
                             {% if lang == 'en' %}
-                                <form method="post" action="{{ url_for('change_language') }}">
-                                    <button type="submit" name="lang", value="hu">
-                                        Magyar
-                                    </button>
-                                </form>
+                                <button type="submit" class="btn btn-sm" name="lang", value="hu" height="30px" width="30px">
+                                    <img src="{{ url_for('static', filename='images/flag_hu.png') }}" height="30px" width="30px"/>
+                                </button>
                             {% else %}
-                                <form method="post" action="{{ url_for('change_language') }}">
-                                    <button type="submit" name="lang", value="en">
-                                        English
-                                    </button>
-                                </form>
+                                <button type="submit" class="btn btn-sm" name="lang", value="en" height="30px" width="30px">
+                                    <img src="{{ url_for('static', filename='images/flag_en.png') }}" height="30px" width="30px"/>
+                                </button>
                             {% endif %}
-                        {% endif %}
+                        </form>
                     </li>
                 </ul>
             </div>
