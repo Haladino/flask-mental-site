@@ -19,20 +19,21 @@
                     <li><a href="{{ url_for('services') }}">Szolgáltatások</a></li>
                     <li><a href="{{ url_for('contact') }}">Kapcsolat</a></li>
                     <li>
-                        {% if en %}
-                             <form method="post" action="{{ url_for('change_language') }}">
-                                <button type="submit" name="lang", value="hu">
-                                    Magyar
-                                </button>
-                            </form>
-                        {% else %}
-                            <form method="post" action="{{ url_for('change_language') }}">
-                                <button type="submit" name="lang", value="en">
-                                    English
-                                </button>
-                            </form>
+                        {% if lang %}
+                            {% if lang == 'en' %}
+                                <form method="post" action="{{ url_for('change_language') }}">
+                                    <button type="submit" name="lang", value="hu">
+                                        Magyar
+                                    </button>
+                                </form>
+                            {% else %}
+                                <form method="post" action="{{ url_for('change_language') }}">
+                                    <button type="submit" name="lang", value="en">
+                                        English
+                                    </button>
+                                </form>
+                            {% endif %}
                         {% endif %}
-
                     </li>
                 </ul>
             </div>
@@ -40,15 +41,6 @@
     </head>
 
     <body>
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <ul class=flashes>
-                    {% for message in messages %}
-                        <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
 
         {% block content %}
 
