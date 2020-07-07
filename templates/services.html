@@ -2,14 +2,22 @@
 
 {% block content %}
     {% if text %}
+        <div class="row-xs-1" align="center">
+            <h1>
+                Mentálhigiénés szolgáltatásaink:
+            </h1>
+        </div>
+
+        <br/>
+
         <div class='container'>
         {% for line in text %}
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-xs-6">
                     <p>{{ line.0 }}</p>
                 </div>
-                <div class="col-sm-6">
-                    <a href="{{ url_for('contact', name=line.1) }}">{{ line.1 }}</a>
+                <div class="col-xs-6">
+                    <a href="{{ url_for('contact', name=line.1) | replace('%0A', '') }}">{{ line.1 }}</a>
                 </div>
             </div>
         {% endfor %}
