@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-
 <style>
     .bg {
         background-image: url("/static/images/background.jpg");
@@ -17,8 +15,8 @@
 <div class="bg">
 
     <div class="container">
-        <p class="text-large">Mentálhigiénés segítő beszélgetés</p>
-        <p class="text-small">Jövőfókuszú megoldásokkal</p>
+        <h1 class="display1">Mentálhigiénés segítő beszélgetés</p>
+        <h2 class="display2">Jövőfókuszú megoldásokkal</p>
     </div>
 
     <div class="col-xs-12" style="height:100px;"></div>
@@ -27,7 +25,7 @@
         {% for line in text %}
         <div class="row">
             <div class="col text-center">
-                <p class="align-middle text-medium text-primary"> {{ line }} </p>
+                <p class="align-middle text-primary"> {{ line }} </p>
             </div>
         </div>
         {% endfor %}

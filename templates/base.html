@@ -21,24 +21,24 @@
         </style>
 
         <nav class="navbar navbar-default">
-            <div class="container-fluid">
+            <div class="container-fluid" style="height: 60px">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ url_for('index') }}">HelloMenta</a>
+                    <a class="navbar-brand" style="color: #3c6afc" href="{{ url_for('index') }}">HelloMenta</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li ><a class="text-primary" href="{{ url_for('index') }}"> {% if lang == 'en' %} Index {% else %} Kezdőlap {% endif %} </a></li>
-                    <li><a class="text-primary" href="{{ url_for('about') }}"> {% if lang == 'en' %} About {% else %} Rólunk {% endif %} </a></li>
-                    <li><a class="text-primary" href="{{ url_for('services') }}"> {% if lang == 'en' %} Services {% else %} Szolgáltatások {% endif %} </a></li>
-                    <li><a class="text-primary" href="{{ url_for('contact') }}"> {% if lang == 'en' %} Contact {% else %} Kapcsolat {% endif %} </a></li>
-                    <li>
-                        <form method="post" action="{{ url_for('change_language') }}">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}" style="color: #3c6afc"> {% if lang == 'en' %} Index {% else %} Kezdőlap {% endif %} </a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}" style="color: #3c6afc"> {% if lang == 'en' %} About {% else %} Rólunk {% endif %} </a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('services') }}" style="color: #3c6afc"> {% if lang == 'en' %} Services {% else %} Szolgáltatások {% endif %} </a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}" style="color: #3c6afc"> {% if lang == 'en' %} Contact {% else %} Kapcsolat {% endif %} </a></li>
+                    <li class="nav-item">
+                        <form method="post" action="{{ url_for('change_language') }}" style="height: 30px; width: 30px">
                             {% if lang == 'en' %}
-                                <button type="submit" class="btn btn-sm" name="lang", value="hu" height="30px" width="30px">
-                                    <img src="{{ url_for('static', filename='images/flag_hu.png') }}" height="30px" width="30px"/>
+                                <button type="submit" class="btn btn-sm" name="lang", value="hu" style="height: 30px; width: 30px">
+                                    <img src="{{ url_for('static', filename='images/flag_hu.png') }}" style="height: 30px; width: 30px"/>
                                 </button>
                             {% else %}
-                                <button type="submit" class="btn btn-sm" name="lang", value="en" height="30px" width="30px">
-                                    <img src="{{ url_for('static', filename='images/flag_en.png') }}" height="30px" width="30px"/>
+                                <button type="submit" class="btn btn-sm" name="lang", value="en" style="height: 30px; width: 30px">
+                                    <img src="{{ url_for('static', filename='images/flag_en.png') }}" style="height: 30px; width: 30px"/>
                                 </button>
                             {% endif %}
                         </form>
