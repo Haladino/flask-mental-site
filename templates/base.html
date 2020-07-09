@@ -9,7 +9,8 @@
         <link href="css/addons/flag.min.css" rel="stylesheet">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
         <style>
             .navbar-default {
@@ -19,25 +20,30 @@
                 background-size: cover;
             }
         </style>
+    </head>
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid" style="height: 60px">
-                <div class="navbar-header">
-                    <a class="navbar-brand" style="color: #3c6afc" href="{{ url_for('index') }}">HelloMenta</a>
-                </div>
+    <body>
+        <nav class="navbar navbar-dark navbar-expand-sm">
+            <a class="navbar-brand" style="color: #3c6afc" href="{{ url_for('index') }}">HelloMenta</a>
+            <button class="navbar-toggler visible-xs btn btn-default btn-sm" type="button" data-toggle="collapse" data-target="#collapsable">
+                <span class="navbar-toggler-icon">
+                    <img src="{{ url_for('static', filename='images/menta.jpg') }}" style="width:40px; height:40px;"/>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsable">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}" style="color: #3c6afc"> {% if lang == 'en' %} Index {% else %} Kezdőlap {% endif %} </a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}" style="color: #3c6afc"> {% if lang == 'en' %} About {% else %} Rólunk {% endif %} </a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('services') }}" style="color: #3c6afc"> {% if lang == 'en' %} Services {% else %} Szolgáltatások {% endif %} </a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}" style="color: #3c6afc"> {% if lang == 'en' %} Contact {% else %} Kapcsolat {% endif %} </a></li>
                     <li class="nav-item">
-                        <form method="post" action="{{ url_for('change_language') }}" style="height: 30px; width: 30px">
+                        <form method="post" action="{{ url_for('change_language') }}" style="height: 30px; width: 30;">
                             {% if lang == 'en' %}
-                                <button type="submit" class="btn btn-sm" name="lang", value="hu" style="height: 30px; width: 30px">
+                                <button type="submit" class="btn btn-default btn-sm" name="lang", value="hu" style="height: 30px; width: 30px">
                                     <img src="{{ url_for('static', filename='images/flag_hu.png') }}" style="height: 30px; width: 30px"/>
                                 </button>
                             {% else %}
-                                <button type="submit" class="btn btn-sm" name="lang", value="en" style="height: 30px; width: 30px">
+                                <button type="submit" class="btn btn-default btn-sm" name="lang", value="en" style="height: 30px; width: 30px padding-left: 0px;  padding-right: 0px;">
                                     <img src="{{ url_for('static', filename='images/flag_en.png') }}" style="height: 30px; width: 30px"/>
                                 </button>
                             {% endif %}
@@ -46,9 +52,6 @@
                 </ul>
             </div>
         </nav>
-    </head>
-
-    <body>
 
         {% block content %}
 
