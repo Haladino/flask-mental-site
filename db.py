@@ -1,47 +1,57 @@
-import os
-from collections import namedtuple
-from datetime import datetime, timedelta
+from util import read_file
+from config import DATABASE_FILES
+from flask import json
 
-from app import app
+class new_database():
 
-
-LOC = os.path.dirname(os.path.realpath(__file__))
-
-
-Event = namedtuple('Event', ['start', 'end'])
-
-
-SE_EVENTS = [Event(datetime(2020, 7, 7, 8), datetime(2020, 7, 7, 9)),
-            Event(datetime(2020, 7, 10, 10), datetime(2020, 7, 10, 11))]
+    def __init__(self):
+        self.LOADED_FILES = {}
+        self.NUMBER_OF_FILES_LOADED = 0
+        self.LOADED_FILE_NAMES = []
+        self.HISTORY = []
 
 
-def read_text_content(filename, split_on=None):
-    path = os.path.join(LOC, 'static', 'text', filename) + '.txt'
-    with open(path, 'r', encoding='utf-8') as f:
-        if split_on:
-            return [line.split(split_on) for line in f]
+    def load(self, filename=None):
+        if filename and filename.find('.json') < 1:
+            print("The file your're trying to load is not JSON")
+        
+        elif filename:
+            key = filename.replace('.json' , '_data')
+
+            self.LOADED_FILES[key] = read_file('database/' + filename, json)
+            self.NUMBER_OF_FILES_LOADED += 1
+            self.LOADED_FILE_NAMES.append(filename)            
         else:
-            return [line for line in f]
+            for databasefile in DATABASE_FILES:
+                key = databasefile.replace('.json' , '_data')
+
+                self.LOADED_FILES[key] = read_file('database/' + databasefile, json)
+                self.NUMBER_OF_FILES_LOADED += 1
+                self.LOADED_FILE_NAMES.append(databasefile)
 
 
-
-CITATION_TEXT = {'hu': read_text_content('citation'),
-                'en': read_text_content('citation_en')}
-
-HELP_TEXT = {'hu': read_text_content('help'),
-            'en': read_text_content('help_en')}
-
-SERVICES = {'hu': read_text_content('services', split_on=','),
-            'en': read_text_content('services_en', split_on=',')}
+    def reload_database(self):
+        self.reset_database()
+        if len(self.HISTORY) > 0:
+            for filename in self.HISTORY:
+                self.load(filename)
+        else:
+            self.load()
 
 
-def full_hours(name, days):
-    res = {hour: {day : False for day in days.values()} for hour in range(8, 17)}
-    for event in SE_EVENTS:
-        start = event.start
-        end = event.end
-        day = start.date()
-        hour = start.hour
-        if hour in res.keys() and day in res[hour].keys():
-            res[hour][day] = True
-    return res
+    def reset_database(self):
+        self.LOADED_FILES = {}
+        self.NUMBER_OF_FILES_LOADED = 0
+        self.HISTORY = self.get_loaded_files_name()
+        self.LOADED_FILE_NAMES = []
+
+
+    def get_loaded_files_json(self):
+        return self.LOADED_FILES
+
+    def get_number_of_loaded_files(self):
+        return self.NUMBER_OF_FILES_LOADED
+
+    
+    def get_loaded_files_name(self):
+        return self.LOADED_FILE_NAMES

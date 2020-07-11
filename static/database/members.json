@@ -1,0 +1,18 @@
+{
+    "members" : [
+        {
+            "name"    : "",
+            "contact" : {
+            "phone" : "00000000000",
+            "email" : "valami@valami.hu"
+            }
+        },
+        {
+            "name"    : "",
+            "contact" : {
+            "phone" : "00000000000",
+            "email" : "valami@valami.hu"
+            }
+        }
+    ]
+}

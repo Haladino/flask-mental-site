@@ -1,47 +1,106 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
+<main>
+    <!--HERO IMAGE-->
+    <div id="hero_image" class="landing_strip_full">
+        <section id="hero_content" class="middle_container">
+            <h1 id="hero_content--title" class="color_white block_900 vh_75">Mentálhigiénés segítő beszélgetés</br>jövőfókuszú megoldásokkal</h1>
 
-<style>
-    .bg {
-        background-image: url("/static/images/background.jpg");
-        height: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-</style>
+            <q id="hero_content--quote" class="color_light twist_bg_left relative text_size_small">"Mindenik embernek a lelkében dal van</br>és a saját lelkét hallja minden dalban.</br>És akinek szép a lelkében az ének,</br>az hallja a mások énekét is szépnek."</q>
 
-<div class="bg">
-
-    <div class="jumbotron text-center">
-        <h1 class="display1">Mentálhigiénés segítő beszélgetés</p>
-        <h2 class="display2">Jövőfókuszú megoldásokkal</p>
+            <button id="hero_content--button" class="action_button see_through reference_button mid"><a href="/szolgaltatasok">Szolgáltatásainkról</a></button>
+        </section>
     </div>
 
-    <div class="col-xs-12" style="height:100px;"></div>
+    <!--MAIN CONTENT-->
+    <div id="main"">
+        <!--SECTION 1-->
+        <section id="Rolunk" class="bg_dark">
+            <div class="middle_container">
+                <h2 class="text_align_left color_light bottom_space">Rólunk</h2>
+                <p style="z-index: -1;" class="twist_bg_middle relative text_align_middle text_size_medium block_750 to_middle bolder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac finibus metus, eu efficitur lacus. Aliquam erat volutpat. Sed condimentum varius lorem a malesuada. In gravida nec purus vitae maximus. Aenean interdum nunc libero. Nam et vulputate dolor.</p>
+            </div>
+        </section>
+        <!--SECTION 2-->
+        <section class="middle_container">
+            <h2 class="text_align_middle bottom_space">Amit nyújtani tudunk</h2>
+            <div class="auto_grid">
+                <div class="card ">
+                    <div class="image_wrapper small">
+                        <img src="{{ url_for('static', filename='images/Bird1.svg') }}" alt="">
+                    </div>
+                    <div class="card_content">
+                        <h3 class="text_align_middle">Lorem ipsum dolor</h3>
+                        <p class="text_size_extra_small text_align_middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac finibus metus, eu efficitur lacus. Aliquam erat volutpat. Sed condimentum varius lorem a malesuada. In gravida nec purus vitae maximus. Aenean interdum nunc libero. Nam et vulputate dolor</p>
+                    </div>
+                </div>
 
-    <div class="container mh-100">
-        {% for line in text %}
-        <div class="row">
-            <div class="col text-center">
-                <p class="align-middle text-primary"> {{ line }} </p>
+                <div class="card ">
+                    <div class="image_wrapper small">
+                        <img src="{{ url_for('static', filename='images/heads_1.svg') }}" alt="">
+                    </div>
+                    <div class="card_content">
+                        <h3 class="text_align_middle">Lorem ipsum dolor</h3>
+                        <p class="text_size_extra_small text_align_middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac finibus metus, eu efficitur lacus. Aliquam erat volutpat. Sed condimentum varius lorem a malesuada. In gravida nec purus vitae maximus. Aenean interdum nunc libero. Nam et vulputate dolor</p>
+                    </div>
+                </div>
+
+                <div class="card ">
+                    <div class="image_wrapper small">
+                        <img src="{{ url_for('static', filename='images/tree_hand.svg') }}" alt="">
+                    </div>
+                    <div class="card_content">
+                        <h3 class="text_align_middle">Lorem ipsum dolor</h3>
+                        <p class="text_size_extra_small text_align_middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac finibus metus, eu efficitur lacus. Aliquam erat volutpat. Sed condimentum varius lorem a malesuada. In gravida nec purus vitae maximus. Aenean interdum nunc libero. Nam et vulputate dolor</p>
+                    </div>
+                </div>
+
             </div>
-        </div>
-        {% endfor %}
-        <div class="row">
-            <div class="col text-center">
-                <form method="post">
-                    {% if lang == 'en' %}
-                        <input type="submit" class="btn btn-primary" value="Contact" />
-                    {% else %}
-                        <input type="submit" class="btn btn-primary" value="Kapcsolat" />
-                    {% endif %}
-                </form>
+
+            <p class="bottom_space text_align_right"><a href="">További informació</a></p>
+
+            <button class="action_button bg_mid to_middle no_space"><a href="">Foglaljon időpontot</a></button>
+
+        </section>
+
+
+
+        <!--SECTION 3-->
+        <section class="bg_dark">
+            <div class="middle_container">
+                <h2 class="text_align_middle bottom_space color_light">Csapatunk tagjai</h2>
+                <div class="auto_grid no_gap early_wrap">
+
+                    <div class="card relative strip_400" style="width: 100%;">
+                        <div class="image_wrapper profile_image_mid box_size overflow">
+                            <img src="{{ url_for('static', filename='images/prof1.jpg') }}" alt="">
+                        </div>
+                        <div class="card_content absolute_center">
+                            <p class="color_white to_sans bolder text_size_large text_align_middle">Simonka Enikő</p>
+                            <p class="color_light text_size_small text_align_middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac finibus metus, eu efficitur lacus.</p>
+                        </div>
+                    </div>
+
+                    <div class="card relative strip_400" style="width: 100%;">
+                        <div class="image_wrapper profile_image_mid box_size overflow">
+                            <img src="{{ url_for('static', filename='images/prof2.jpg') }}" alt="">
+                        </div>
+                        <div class="card_content absolute_center">
+                            <p class="color_white to_sans bolder text_size_large text_align_middle">Tomor Andrea</p>
+                            <p class="color_light text_size_small text_align_middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac finibus metus, eu efficitur lacus.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <button class="action_button bg_mid to_middle bottom_space_double"><a href="">Lépjen kapcsolatba velünk</a></button>
+            
+        </section>
+        
     </div>
+    <!--PAGE CONTENT ENDS HERE-->
 
-</div>
+</main>
 
-{% endblock content %}
+{% endblock %}

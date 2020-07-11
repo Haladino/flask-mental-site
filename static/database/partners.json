@@ -1,0 +1,31 @@
+{
+    "partners" : [
+        {
+            "name"  : "",
+            "phone" : null,
+            "email" : "",
+            "website" : {
+                "name" : "",
+                "url"  : ""
+            }
+        },
+        {
+            "name"  : "",
+            "phone" : null,
+            "email" : "",
+            "website" : {
+                "name" : "",
+                "url"  : ""
+            }
+        },
+        {
+            "name"  : "",
+            "phone" : null,
+            "email" : "",
+            "website" : {
+                "name" : "",
+                "url"  : ""
+            }
+        }
+    ]
+}

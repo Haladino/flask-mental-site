@@ -1,64 +1,65 @@
-from flask import Flask, render_template, url_for, request, redirect, session, flash
+from flask import Flask, json
+from util import read_file
+from db import new_database
+from config import FRONTEND_CONFIG_FILE
 
 app = Flask(__name__)
 
-app.secret_key = '7afbbd085cd10de82a67572c1ebf7827'
 
-import db
+### Select Configuration ##############################
+# To set env use console
+# For Linux / Mac
+# $ export FLASK_ENV={ your config name }
+#
+# For Windows PowerShell
+# $env:FLASK_ENV= "{ your config name }"
+# 
+# For cmd
+# > set FLASK_ENV={ your config name }
+#
+# To set here
+# TEST
+# app.config.from_object('config.test_config')
+# DEVELOPMENT
+# app.config.from_object('config.development_config')
+# PRODUCTION
+# app.config.from_object('config.production_config')
 
-from util import current_weekdays
+if app.config["ENV"] == "test":
+    app.config.from_object("config.test_config")
 
+elif app.config["ENV"] == "development":
+    app.config.from_object("config.development_config")
 
-@app.route('/en')
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        return redirect(url_for('contact'))
-    else:
-        lang = session.get('lang', 'hu')
-        return render_template('index.html', text=db.CITATION_TEXT[lang], lang=lang)
+else:
+    app.config.from_object("config.production_config")
 
+print("The server runs on: " + app.config['ENV'].upper() + " configuration")
 
-@app.route('/en/about')
-@app.route('/rolunk')
-def about():
-    lang = session.get('lang', 'hu')
-    return render_template('about.html', text=db.HELP_TEXT[lang], lang=lang)
-
-
-@app.route('/en/contact')
-@app.route('/kapcsolat')
-@app.route('/kapcsolat/<name>')
-def contact(name=None):
-    lang = session.get('lang', 'hu')
-    if name:
-        if name == 'Simonka Enikő':
-            return render_template('simonkaeniko.html', lang=lang)
-        elif name == 'Tomor Andrea':
-            return render_template('tomorandrea.html', lang=lang)
-        else:
-            pass
-    else:
-        return render_template('contact.html', lang=lang)
+#######################################################
 
 
-@app.route('/en/services')
-@app.route('/szolgaltatasok')
-def services():
-    lang = session.get('lang', 'hu')
-    return render_template('services.html', text=db.SERVICES[lang], lang=lang)
+### Read in database/{}.json with util.py >> read_file
+#
+# DB_Language = read_file('database/language.json', json)
+#
+###
+# static/text/{}.txt anyaga megy ide ami a DB_Language objectumba kerul
+#
+# Useage print( DB_Language["Language"]["Citation"]["Eng"] / ["Hun"] )
 
 
-@app.route('/calendar')
-def calendar():
-    lang = session.get('lang', 'hu')
-    days = current_weekdays()
-    full = db.full_hours(request.args['name'], days)
-    #flash(full)
-    return render_template('calendar.html', lang=lang, days=days, full=full)
+### Loading JSON database files listed in config.py DATABASE_FILES
+
+CONFIG = new_database()
+DB = new_database()
+
+CONFIG.load(FRONTEND_CONFIG_FILE["filename"])
+DB.load()
 
 
-@app.route('/change_lang', methods=['POST'])
-def change_language():
-    session['lang'] = request.form['lang']
-    return redirect(url_for('index'))
+import views
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

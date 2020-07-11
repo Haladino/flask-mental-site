@@ -1,0 +1,43 @@
+{
+    "author"      : "Menta",
+    "title"       : "HelloMenta | Test",
+    "description" : "This is a test site for Hello Menta",
+    "keywords"    : "hello, menta, test",
+
+    "contact"     : {
+        "phone"   : "000000000",
+        "email"   : "valami@valami.hu",
+        "address" : "5000, Valami ut 28, Debrecen"
+    },
+
+    "og" : {
+        "locale"           : "hu_HU",
+        "locale_alternate" : "hu_HU, en_GB",
+        "title"            : "Hello Menta Site",
+        "description"      : "Hello Menta site",
+        "type"             : "website",
+        "site_name"        : "Hello Menta",
+
+        "image" : {
+            "url"        : "",
+            "secure_url" : "",
+            "alt"        : "",
+            "type"       : "",
+            "width"      : "",
+            "height"     : ""
+        }
+    },
+
+    "social_medias" : [
+        {
+            "name"   : "facebook",
+            "url"    : "http://facebook.com",
+            "app_id" : ""
+        }
+    ],
+
+    "access_key" : {
+        "google" : "AIzaSyAq6Nb0iFJwWdedBdETAXgdfJJL2-iG1XE"
+    }
+
+}

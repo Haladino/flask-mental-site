@@ -1,0 +1,97 @@
+{
+    "blogposts" : [
+        {
+            "title"       : "",
+            "url"         : "",
+            "date_added"  : "",
+
+            "meta_data"   : {
+                "keywords"    : "",
+                "description" : "",
+                "og" : {
+                    "locale"           : "hu_HU",
+                    "locale_alternate" : "hu_HU, en_GB",
+                    "title"            : "",
+                    "description"      : "",
+                    "type"             : "article",
+                    "site_name"        : "",
+            
+                    "image" : {
+                        "url"        : "",
+                        "secure_url" : "",
+                        "alt"        : "",
+                        "type"       : "",
+                        "width"      : "",
+                        "height"     : ""
+                    },
+
+                    "images" : [
+                        {
+                            "url"        : "",
+                            "secure_url" : "",
+                            "alt"        : "",
+                            "type"       : "",
+                            "width"      : "",
+                            "height"     : ""
+                        },
+                        {
+                            "url"        : "",
+                            "secure_url" : "",
+                            "alt"        : "",
+                            "type"       : "",
+                            "width"      : "",
+                            "height"     : ""
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "title"       : "",
+            "url"         : "",
+            "date_added"  : "",
+
+            "meta_data"   : {
+                "keywords"    : "",
+                "description" : "",
+                "og" : {
+                    "locale"           : "hu_HU",
+                    "locale_alternate" : "hu_HU, en_GB",
+                    "title"            : "",
+                    "description"      : "",
+                    "type"             : "article",
+                    "site_name"        : "",
+            
+                    "image" : {
+                        "url"        : "",
+                        "secure_url" : "",
+                        "alt"        : "",
+                        "type"       : "",
+                        "width"      : "",
+                        "height"     : ""
+                    },
+
+                    "images" : [
+                        {
+                            "url"        : "",
+                            "secure_url" : "",
+                            "alt"        : "",
+                            "type"       : "",
+                            "width"      : "",
+                            "height"     : ""
+                        },
+                        {
+                            "url"        : "",
+                            "secure_url" : "",
+                            "alt"        : "",
+                            "type"       : "",
+                            "width"      : "",
+                            "height"     : ""
+                        }
+                    ]
+                }
+            }
+        }
+
+    ]
+}

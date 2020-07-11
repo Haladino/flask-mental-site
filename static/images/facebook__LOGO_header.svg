@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="543.17334mm"
+   height="545.71826mm"
+   viewBox="0 0 543.17334 545.7183"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="facebook__LOGO_header.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.125"
+     inkscape:cx="628.38649"
+     inkscape:cy="1098.0139"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     showborder="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:object-paths="false"
+     inkscape:snap-intersection-paths="false"
+     inkscape:snap-nodes="true"
+     inkscape:object-nodes="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-bottom="0"
+     fit-margin-right="0">
+    <inkscape:grid
+       type="axonomgrid"
+       id="grid815"
+       units="mm"
+       empspacing="5"
+       empcolor="#e3ff8d"
+       empopacity="0.25098039"
+       color="#deff5c"
+       opacity="0.1254902"
+       visible="false"
+       originx="1328.5457"
+       originy="983.42234" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid862"
+       originx="1328.5457"
+       originy="983.42234" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(1328.5457,-734.70372)">
+    <g
+       aria-label="f"
+       transform="matrix(8.3878579,0,0,8.0350979,8624.9235,-6558.7505)"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Franklin Gothic Medium';-inkscape-font-specification:'Franklin Gothic Medium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;opacity:1;fill:#73b950;fill-opacity:0.98543689;stroke:none"
+       id="flowRoot821-9" />
+    <g
+       aria-label="f"
+       transform="matrix(8.3878579,0,0,8.0350979,8479.7921,-6751.3439)"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Franklin Gothic Medium';-inkscape-font-specification:'Franklin Gothic Medium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;opacity:1;fill:#000000;fill-opacity:1;stroke:none"
+       id="flowRoot821-8" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     transform="translate(1328.5457,-734.70372)">
+    <path
+       style="opacity:1;fill:#daffae;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M -1328.5457,734.81403 V 1280.422 l 301.1837,-0.4803 0.1399,-227.3264 -79.697,0.3623 v -74.90243 l 79.5567,-0.1268 v -50.524 c 0,-34.5198 -0.074,-76.29335 18.0387,-97.45239 5.182,-5.74525 9.2777,-12.1162 18.51447,-18.69265 10.58629,-7.53689 15.60543,-9.55997 25.33228,-13.25084 21.42052,-8.1283 67.75623,-5.66159 70.69053,-5.62524 7.79072,0.095 26.6074,1.05575 28.76997,3.01628 v 77.75724 c -4.12789,-1.226 -16.52202,-1.2237 -20.41766,-1.2175 -20.45245,0.033 -40.11893,-0.5632 -48.39733,4.8143 -8.27841,5.1446 -10.0222,9.891 -11.72664,17.1244 -1.46044,6.9996 0.27574,62.5925 0.27574,84.5171 l 81.07924,-0.7241 -10.46633,74.41573 -74.39346,0.7617 0.19839,227.1476 163.97723,-0.2613 0.51488,-545.05098 z"
+       id="rect1075"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccsccccccscccccccccc" />
+  </g>
+</svg>

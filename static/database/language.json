@@ -1,0 +1,19 @@
+{
+    "Language" : {
+        
+        "Citation" : {
+            "Eng" : "This is in English",
+            "Hun" : "Magyarul"
+        },
+
+        "Help" : {
+            "Eng" : "Angolul",
+            "Hun" : "Magyarul"
+        },
+
+        "Services" : {
+            "Eng" : "Angolul",
+            "Hun" : "Magyarul"
+        }
+    }
+}

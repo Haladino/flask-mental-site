@@ -1,0 +1,33 @@
+### 2020 07 10
+
+- A nyelv valtoztatas most kell, majd kesobb megirjuk
+
+- Mi lesz az adatbazis?
+
+    PythonAnywhere mySQL
+    JSON
+    XML
+
+- static/database/language.json a txt-k helyett
+
+### 2020 07 11
+
+- Uj Fajlok
+    - config.py
+    - views.py
+    - app.py
+    - bd.py
+    - static/database/language.json
+    - static/database/members.json
+    - static/database/blog_data.json
+    - static/database/partners.json
+    - static/database/site_config.json
+    - robots.txt
+    - sitemaps.xml
+
+- valtoztatas
+    - regi app.py >> app_old.py
+    - db.py >> bd_old.py
+    - db.py >> JSON database handler class
+    - util.py
+        - read_file() hozzaadva

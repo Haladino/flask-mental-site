@@ -1,26 +1,116 @@
-{% extends 'base.html' %}
+{% extends "base.html"  %}
 
 {% block content %}
-    {% if text %}
-        <div class="row-xs-1" align="center">
-            <h1>
-                Mentálhigiénés szolgáltatásaink:
-            </h1>
+<main>
+
+    <section class="bg_mid landing_strip_100 relative">
+        <div class="middle_container absolute_left_center">
+            <h1 class="text_align_left color_white block_900 vh_75">Mi az ön mentális egészségével foglalkozunk</h1>
         </div>
-
-        <br/>
-
-        <div class='container'>
-        {% for line in text %}
-            <div class="row">
-                <div class="col-xs-6">
-                    <p>{{ line.0 }}</p>
-                </div>
-                <div class="col-xs-6">
-                    <a href="{{ url_for('contact', name=line.1) | replace('%0A', '') }}">{{ line.1 }}</a>
-                </div>
+        <div id="hero_display" class="side_padding relative" style="top: calc( 100% - 150px );">
+            <div class="block_1200 to_middle flex_row" style="top: calc( 100% - 150px ); justify-content: right;">
+                <table style="border-collapse: separate; border-spacing: 10px 5px;" class="fix_300 bg_light strip_150 box_container">
+                    <tr><th class="text_align_middle" colspan="2"><h5>Ügyfélfogadás</h5></th></tr>
+                    <tr><td>Hetfotol-Pentekig</td><td>16-20</td></tr>
+                </table>
             </div>
-        {% endfor %}
         </div>
-    {% endif %}
+    </section>
+
+    <nav class="strip_100 bg_dark side_padding">
+        <ul class="flex_row wrap reverse no_disk center block_1200 to_middle">
+            <li class="no_space"><button class="reference_button light no_space fix_300"><a href="">Kikkel foglalkozunk?</a></button></li>
+            <li class="no_space"><button class="reference_button light no_space fix_300"><a href="">Ki az önnek megfelelő beszélgető társ?</a></button></li>
+            <li class="no_space"><button class="reference_button light no_space fix_300"><a href="">Hogyan zajlik egy beszélgetés?</a></button></li>
+            <li class="no_space"><button class="reference_button light no_space fix_300"><a href="">Hogyan foglalhatok egzszerűen időpontot?</a></button></li>
+        </ul>
+    </nav>
+
+    <section class="middle_container auto_grid">
+        <div>
+            <h2 class="block_400 to_middle">Akiknek seítséget tudunk nyujtani</h2>
+            <p class="text_align_left block_400 to_middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac finibus metus, eu efficitur lacus. Aliquam erat volutpat. Sed condimentum varius lorem a malesuada. In gravida nec purus vitae maximus. Aenean interdum nunc libero. Nam et vulputate dolor.</p>
+        </div>
+        <div class="image_wrapper overflow medium">
+            <img src="{{ url_for('static', filename='images/Bird3.svg') }}" alt="">
+        </div>
+    </section>
+
+    <section class="middle_container">
+        <h2 class="text_align_left block_400 to_middle bottom_space_double">Forduljon hozzánk bizalommal!</h2>
+        <div class="bg_light">
+
+            <div class="auto_grid no_gap early_wrap bottom_space_double">
+
+                <div class="card relative strip_400" style="width: 100%; padding: 0;">
+                    <div class="image_wrapper profile_image_mid overflow box_size relative">
+                        <img src="{{ url_for('static', filename='images/prof1.jpg') }}" alt="">
+                    </div>
+                    <div class="card_content absolute_center" style="width: 100%; height: 100%; padding: 0;">
+                        <p class="color_light to_sans text_size_large text_align_middle extra_bold absolute_center">Simonka Enikő</p>
+                        <p style="width: 100%; margin-bottom: 0;" class="color_light bg_dark to_sans text_align_middle text_size_small absolute_center_bottom flex_row space_around"><span>tel.: 00000000</span><span>Email: valami@valami.hu</span></p>
+                    </div>
+                </div>
+
+
+                <div class="bg_light top_space">
+                    <ul class="if_list no_disk block_400 relative to_middle">
+                        <li>szerené megtudni hogyan kezelhetjük mindennapi stresszeinket.</li>
+                        <li>hatékony érzelmi kommunikációban szeretne fejlődni.</li>
+                        <li>hatékony konfliktuskezelést szeretné elsajátítani.</li>
+                        <li>szerete megbírkózni az élet nehéz helyzeteivel, de egyedül nehezen megy.</li>
+                        <li>krízisben van.</li>
+                        <li>magányos.</li>
+                        <li>testi tünetei vannak.</li>
+                    </ul>    
+                </div>
+
+            </div>
+
+
+            <div class="auto_grid no_gap early_wrap">
+                
+                <div class="bg_light">
+                    <ul class="if_list no_disk block_400 relative to_middle">
+                        <li>lelki immunerőssítésre van szüksége.</li>
+                        <li>sikeres állásinterjún szeretne részt venni.</li>
+                        <li>sikereket szeretne elérni a munkahelyén.</li>
+                        <li>serdülőként nem tudja mivel szeretne fogallkozni.</li>
+                        <li>sikeres párválasztás.</li>
+                        <li>szeretné testi lelki egészségét megőrizni.</li>
+                    </ul>
+                </div>
+                    
+                <div class="card relative strip_400" style="width: 100%; padding: 0;">
+                    <div class="image_wrapper profile_image_mid overflow box_size relative">
+                        <img src="{{ url_for('static', filename='images/prof2.jpg') }}" alt="">
+                    </div>
+                    <div class="card_content absolute_center" style="width: 100%; height: 100%; padding: 0;">
+                        <p class="color_light to_sans text_size_large text_align_middle extra_bold absolute_center">Tomor Andrea</p>
+                        <p style="width: 100%; margin-bottom: 0;" class="color_light bg_dark to_sans text_align_middle text_size_small absolute_center_bottom flex_row space_around"><span>tel.: 00000000</span><span>Email: valami@valami.hu</span></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="bg_mid">
+        <div class="middle_container">
+            <h2 class="text_align_middle">Út a mentális stabilitás felé</h2>
+            <p class="block_900 text_align_middle to_middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac finibus metus, eu efficitur lacus. Aliquam erat volutpat. Sed condimentum varius lorem a malesuada. In gravida nec purus vitae maximus.</p>
+        </div>
+    </section>
+
+    <section class="bg_dark">
+        <div class="middle_container">
+            <h2 class="color_light">Időpontfoglalás egyszerűen</h2>
+            <div id="appointment_booking" class="bg_light fix_400 strip_400 to_middle">
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
 {% endblock %}
