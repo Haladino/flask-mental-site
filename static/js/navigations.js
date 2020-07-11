@@ -2,7 +2,6 @@ const navigation = {
 
     button : document.querySelector( "#main_navigation--burger" ),
     menu   : document.querySelector( "#main_navigation--list_wrapper" ),
-    isOpen : false,
 
     open : function() {
         this.menu.classList.toggle( "open" );

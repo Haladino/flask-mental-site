@@ -1,8 +1,16 @@
 {
     "author"      : "Menta",
     "title"       : "HelloMenta | Test",
-    "description" : "This is a test site for Hello Menta",
-    "keywords"    : "hello, menta, test",
+    "language"    : "en_GB",
+    "description" : {
+        "index"    : "This is a test site for Hello Menta",
+        "services" : ""
+    },
+
+    "keywords"    : {
+        "set_1" : "hello, menta, test",
+        "set_2" : ""    
+    },
 
     "contact"     : {
         "phone"   : "000000000",
@@ -17,6 +25,7 @@
         "description"      : "Hello Menta site",
         "type"             : "website",
         "site_name"        : "Hello Menta",
+        "site_url"         : "",
 
         "image" : {
             "url"        : "",
@@ -30,7 +39,7 @@
 
     "social_medias" : [
         {
-            "name"   : "facebook",
+            "name"   : "Facebook",
             "url"    : "http://facebook.com",
             "app_id" : ""
         }

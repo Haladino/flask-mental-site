@@ -1,18 +1,20 @@
 {
     "members" : [
         {
-            "name"    : "",
+            "name"         : "Simonka Eniko",
+            "introduction" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac finibus metus, eu efficitur lacus.",
             "contact" : {
-            "phone" : "00000000000",
-            "email" : "valami@valami.hu"
-            }
+                "phone" : "00000000000",
+                "email" : "valami@valami.hu"
+                }
         },
         {
-            "name"    : "",
+            "name"         : "Tomor Andrea",
+            "introduction" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac finibus metus, eu efficitur lacus.",
             "contact" : {
-            "phone" : "00000000000",
-            "email" : "valami@valami.hu"
-            }
+                "phone" : "00000000000",
+                "email" : "valami@valami.hu"
+                }
         }
     ]
 }

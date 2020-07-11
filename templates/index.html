@@ -14,7 +14,7 @@
     </div>
 
     <!--MAIN CONTENT-->
-    <div id="main"">
+    <div id="main">
         <!--SECTION 1-->
         <section id="Rolunk" class="bg_dark">
             <div class="middle_container">
@@ -77,8 +77,8 @@
                             <img src="{{ url_for('static', filename='images/prof1.jpg') }}" alt="">
                         </div>
                         <div class="card_content absolute_center">
-                            <p class="color_white to_sans bolder text_size_large text_align_middle">Simonka Enikő</p>
-                            <p class="color_light text_size_small text_align_middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac finibus metus, eu efficitur lacus.</p>
+                            <p class="color_white to_sans bolder text_size_large text_align_middle">{{ data["members_data"].members[0].name }}</p>
+                            <p class="color_light text_size_small text_align_middle">{{ data["members_data"].members[0].introduction }}</p>
                         </div>
                     </div>
 
@@ -87,8 +87,8 @@
                             <img src="{{ url_for('static', filename='images/prof2.jpg') }}" alt="">
                         </div>
                         <div class="card_content absolute_center">
-                            <p class="color_white to_sans bolder text_size_large text_align_middle">Tomor Andrea</p>
-                            <p class="color_light text_size_small text_align_middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac finibus metus, eu efficitur lacus.</p>
+                            <p class="color_white to_sans bolder text_size_large text_align_middle">{{ data["members_data"].members[1].name }}</p>
+                            <p class="color_light text_size_small text_align_middle">{{ data["members_data"].members[1].introduction }}</p>
                         </div>
                     </div>
                 </div>

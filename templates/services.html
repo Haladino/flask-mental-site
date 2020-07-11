@@ -47,8 +47,8 @@
                         <img src="{{ url_for('static', filename='images/prof1.jpg') }}" alt="">
                     </div>
                     <div class="card_content absolute_center" style="width: 100%; height: 100%; padding: 0;">
-                        <p class="color_light to_sans text_size_large text_align_middle extra_bold absolute_center">Simonka Enikő</p>
-                        <p style="width: 100%; margin-bottom: 0;" class="color_light bg_dark to_sans text_align_middle text_size_small absolute_center_bottom flex_row space_around"><span>tel.: 00000000</span><span>Email: valami@valami.hu</span></p>
+                        <p class="color_light to_sans text_size_large text_align_middle extra_bold absolute_center">{{ data["members_data"].members[0].name }}</p>
+                        <p style="width: 100%; margin-bottom: 0;" class="color_light bg_dark to_sans text_align_middle text_size_small absolute_center_bottom flex_row space_around"><span>tel.: {{ data["members_data"].members[0].contact.phone }}</span><span>Email: {{ data["members_data"].members[0].contact.email }}</span></p>
                     </div>
                 </div>
 
@@ -86,8 +86,8 @@
                         <img src="{{ url_for('static', filename='images/prof2.jpg') }}" alt="">
                     </div>
                     <div class="card_content absolute_center" style="width: 100%; height: 100%; padding: 0;">
-                        <p class="color_light to_sans text_size_large text_align_middle extra_bold absolute_center">Tomor Andrea</p>
-                        <p style="width: 100%; margin-bottom: 0;" class="color_light bg_dark to_sans text_align_middle text_size_small absolute_center_bottom flex_row space_around"><span>tel.: 00000000</span><span>Email: valami@valami.hu</span></p>
+                        <p class="color_light to_sans text_size_large text_align_middle extra_bold absolute_center">{{ data["members_data"].members[1].name }}</p>
+                        <p style="width: 100%; margin-bottom: 0;" class="color_light bg_dark to_sans text_align_middle text_size_small absolute_center_bottom flex_row space_around"><span>tel.: {{ data["members_data"].members[1].contact.phone }}</span><span>Email: {{ data["members_data"].members[1].contact.email }}</span></p>
                     </div>
                 </div>
 
