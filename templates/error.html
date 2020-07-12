@@ -1,19 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en_GB">
 <head>
+
+    <title>{{ data.code }} | {{ data.name }}</title>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width,
+                                    height=device-height,
+                                    initial-scale=1,
+                                    minimum-scale=1.0,
+                                    maximum-scale=1.0,
+                                    user-scalable=no,
+                                    shrink-to-fit=no,
+                                    target-densitydpi=device-dpi">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon.png') }}">
+    
+    <meta name="author" content="">
+    <meta name="description" content="">
+
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" /> 
+    
 </head>
 <body>
+    <div class="page bg_dark">
+        <div class="landing_strip_full" style="height: 100%;">
+            <div class="middle_container">
+                
+                <div id="text" class="relative block_600">
+                    <h1 class="color_light">{{ data.code }}</h1>
+                    <p class="text_size_extra bolder color_light">{{ data.name }}</p>
+                    <p class="relative text_size_middle color_light to_sans">{{ data.description }}</p>
+                </div>
 
-    {% if data %}
-    <h1>ERROR: {{ data.code }}</h1>
+                <div class="absolute image_wrapper medium" style="position: absolute; right: 10vw; top: 50%; transform: translateY(-50%); z-index: -1">
+                    <img src="{{ url_for('static', filename='images/fall_tree.svg') }}" 
+                         alt="" />
+                </div>
 
-    <p>{{ data.name }}</p>
-    <p>{{ data.description }}
-    {% else %}
-        <h2>SERVER ERRO</h2>
-    {% endif %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>

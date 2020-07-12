@@ -1,0 +1,148 @@
+{
+    "error_list" : {
+        "301" : {
+            "code" : 301,
+            "name" : {
+                "eng" : "Moved Permanently",
+                "hun" : "Végleges áthelyezés"
+            },
+            "description" : {
+                "eng" : "The requested page has moved to a new URL.",
+                "hun" : "A kérés véglegesen átirányítva másik URI-re. Nem engedélyezi a metódus váltását"
+            }
+        },
+        "307" : {
+            "code" : 307,
+            "name" : {
+                "eng" : "Temporary Redirect",
+                "hun" : "Ideiglenes átirányítás"
+            },
+            "description" : {
+                "eng" : "The requested page has moved temporarily to a new URL.",
+                "hun" : "A kérés ideiglenesen átirányítva másik URI-re. Engedélyezi a metódus váltását."
+            }
+        },
+        "308" : {
+            "code" : 308,
+            "name" : {
+                "eng" : "Permanent Redirect",
+                "hun" : "Végleges átirányítás"
+            },
+            "description" : {
+                "eng" : "Indicates that the resource requested has been definitively moved to the URL given by the Location headers.",
+                "hun" : "A kérés véglegesen átirányítva másik URI-re. Engedélyezi a metódus váltását"
+            }
+        },
+        "400" : {
+            "code" : 400,
+            "name" : {
+                "eng" : "Bad Request",
+                "hun" : "Hiba a lekérésben"
+            },
+            "description" : {
+                "eng" : "The request cannot be fulfilled due to bad syntax",
+                "hun" : "A kérés nem végrehajtható, mert rossz szintaxisú, túl hosszú stb."
+            }
+        },
+        "401" : {
+            "code" : 401,
+            "name" : {
+                "eng" : "Unathorized",
+                "hun" : "Azonosítási hiba"
+            },
+            "description" : {
+                "eng" : "The request was a legal request, but the server is refusing to respond to it. For use when authentication is possible but has failed or not yet been provided.",
+                "hun" : "Megegyezik a 403-mal, de meghiúsult azonosítás (a WWW-Autenthicate fejléccel) után jelenik meg."
+            }
+        },
+        "402" : {
+            "code" : 402,
+            "name" : {
+                "eng" : "Payment Required",
+                "hun" : "Fizetés szükséges"
+            },
+            "description" : {
+                "eng" : "",
+                "hun" : "Jövőbeli használat céljából létrehozva. Eredeti célja az volt, hogy például egy internetes bank részeként működjön. Ez nem valósult meg, a Google egyéb célokra használja"
+            }
+        },
+        "403" : {
+            "code" : 403,
+            "name" : {
+                "eng" : "Forbidden",
+                "hun" : "Hozzáférés megtiltva"
+            },
+            "description" : {
+                "eng" : "The request was a legal request, but the server is refusing to respond to it.",
+                "hun" : "A kliensnek nincs jogosultsága megtekinteni az oldalt."
+            }
+        },
+        "404" : {
+            "code" : 404,
+            "name" : {
+                "eng" : "Not Found",
+                "hun" : "Az oldal nem található"
+            },
+            "description" : {
+                "eng" : "The requested page could not be found but may be available again in the future",
+                "hun" : "A kért erőforrás nem létezik. Megfelelő ideiglenes és végleges helyzet jelölésére is."
+            }
+        },
+        "408" : {
+            "code" : 408,
+            "name" : {
+                "eng" : "Request Timeout",
+                "hun" : "Időtúllépés"
+            },
+            "description" : {
+                "eng" : "The server timed out waiting for the request.",
+                "hun" : "A szerver túl sokáig várt a kérésre, így a kapcsolat lezárult."
+            }
+        },
+        "500" : {
+            "code" : 500,
+            "name" : {
+                "eng" : "Internal Server error",
+                "hun" : "Belső szerverhiba"
+            },
+            "description" : {
+                "eng" : "A generic error message, given when no more specific message is suitable.",
+                "hun" : "Egy általános hibaüzenet szerverhibák jelzésére."
+            }
+        },
+        "502" : {
+            "code" : 502,
+            "name" : {
+                "eng" : "Bad Gateway",
+                "hun" : "Rossz átjáró"
+            },
+            "description" : {
+                "eng" : "The server was acting as a gateway or proxy and received an invalid response from the upstream server.",
+                "hun" : "Jelzi, hogy a szerver egy hibás HTTP-választ kapott egy másik szervertől."
+            }
+        },
+        "503" : {
+            "code" : 503,
+            "name" : {
+                "eng" : "Service Unavailable",
+                "hun" : "A szerver nem elérhető"
+            },
+            "description" : {
+                "eng" : "The server is currently unavailable (overloaded or down).",
+                "hun" : "A szerver nem képes kezelni a kérést. Általában ez a helyzet csak ideiglenes."
+            }
+        },
+        "504" : {
+            "code" : 504,
+            "name" : {
+                "eng" : "Gateway Timeout",
+                "hun" : "Átjáró időtúllépés"
+            },
+            "description" : {
+                "eng" : "The server was acting as a gateway or proxy and did not receive a timely response from the upstream server.",
+                "hun" : "Proxyk használják. Jelzi, hogy a szerver nem kapott választ az eredeti szervertől időben."
+            }
+        }
+        
+    }
+}

@@ -11,6 +11,10 @@ from app import app, DB, CONFIG
 c = CONFIG.get_loaded_files_json()
 data = DB.get_loaded_files_json()
 
+# When session is set
+# Pass session variable to templates
+# lang={ session variable }
+
 ### Main pages go here ################################################
 
 # Home

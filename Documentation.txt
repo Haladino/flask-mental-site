@@ -33,3 +33,13 @@
         - read_file() hozzaadva
 
 ### 2020 07 12
+
+    - app.py
+        - HTTP Exception handling
+        
+    - Custom error page functional
+    - Database/error_list.json
+        - languages
+
+    - favicon
+    

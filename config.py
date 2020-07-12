@@ -41,11 +41,11 @@ FRONTEND_CONFIG_FILE = {
     "filename" : "site_config.json"
 }
 
-DATABASE_FILES = [
+DATABASE_FILES = (
     'blog_data.json',
     'partners.json',
     'members.json'
-]
+)
 
 class config(object):
 

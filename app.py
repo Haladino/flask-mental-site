@@ -5,6 +5,9 @@ from config import FRONTEND_CONFIG_FILE
 
 app = Flask(__name__)
 
+### Set session
+#   - language session variable
+
 ### Select Configuration -------------------------------------------------------
 # To set env use console
 # For Linux / Mac
@@ -59,9 +62,9 @@ DB.load()
 
 
 ### Handle errors & custom error page ----------------------------------------
+
 from flask import render_template, make_response
 from werkzeug.exceptions import HTTPException, BadRequest
-
 
 # Gets all Exceptions
 # If the the exeption is HTTP, redirects to that handler
@@ -72,7 +75,7 @@ def handle_exeptions(e):
     if isinstance(e, HTTPException):
         return http_exeption_handler(e)
 
-    return make_response( render_template('error.html') , 500 )
+    return make_response( render_template('error.html', data=translate_error( 500, 'hun' ) ) , 500 )
 
 
 # Handles HTTP exceptions
@@ -88,14 +91,35 @@ def http_exeption_handler(e):
     
     })
     response.content_type = "application/json"
-
-
-    ### Here we display the hungarian equivalent of errors from file
-    ### error_ls = read_file('database/error_list.json' json)
+    
     data = json.loads(response.data)
-    print(data)
 
-    return make_response( render_template('error.html', data=data) , data['code'] )
+    ### When a session variable is set to a language, that variable is passed to translate_error
+    ### translate_error( data['code'], session_variable_for_language )
+    ### later same variable is passed to templates in views.py
+
+    return make_response( render_template('error.html', data=translate_error( data['code'], 'hun' ) ), data['code'] )
+
+
+def translate_error(error_code, lang):
+    error_ls = read_file('database/error_list.json', json)
+    return {
+                "code"        : error_ls['error_list'][str(error_code)]['code'],
+                "name"        : error_ls['error_list'][str(error_code)]['name'][str(lang)],
+                "description" : error_ls['error_list'][str(error_code)]['description'][str(lang)]  
+            }
+            
+### Register and raise custom error
+# class InsufficientStorage(werkzeug.exceptions.HTTPException):
+#     code = 507
+#     description = 'Not enough storage space.'
+
+# app.register_error_handler(InsufficientStorage, handle_507)
+
+# raise InsufficientStorage()
+
+
+### Error report email
 
 #-----------------------------------------------------------------------------
 
