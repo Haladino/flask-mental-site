@@ -9,7 +9,7 @@ class new_database():
         self.NUMBER_OF_FILES_LOADED = 0
         self.LOADED_FILE_NAMES = []
         self.HISTORY = []
-
+        
 
     def load(self, filename=None):
         if filename and filename.find('.json') < 1:
@@ -48,6 +48,7 @@ class new_database():
 
     def get_loaded_files_json(self):
         return self.LOADED_FILES
+
 
     def get_number_of_loaded_files(self):
         return self.NUMBER_OF_FILES_LOADED

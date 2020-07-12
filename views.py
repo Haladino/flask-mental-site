@@ -9,17 +9,17 @@ from app import app, DB, CONFIG
     # { variables } = DB.get_loaded_files_json()
 
 c = CONFIG.get_loaded_files_json()
-print(c)
 data = DB.get_loaded_files_json()
+
 ### Main pages go here ################################################
 
 # Home
 @app.route('/')
-@app.route('/Index')
-def Index():
+@app.route('/index')
+def index():
     return render_template('index.html', name="Kezdolap", configuration=c, data=data) ### Config JSON passed ### useage c["site_config_data"]["author"]
 
 # Services
-@app.route('/Szolgaltatasok')
-def Szolgaltatasok():
+@app.route('/szolgaltatasok')
+def szolgaltatasok():
     return render_template('services.html', name="Szolgaltatasok", configuration=c, data=data)

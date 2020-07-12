@@ -16,7 +16,7 @@
     - config.py
     - views.py
     - app.py
-    - bd.py
+    - db.py
     - static/database/language.json
     - static/database/members.json
     - static/database/blog_data.json
@@ -31,3 +31,5 @@
     - db.py >> JSON database handler class
     - util.py
         - read_file() hozzaadva
+
+### 2020 07 12
