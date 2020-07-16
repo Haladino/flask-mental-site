@@ -1,5 +1,5 @@
 // * { border: .5px solid red }
-$base_form_color: $color-dark;
+$base_form_color: $color-mid;
 
 #color_test { background-color: $base_form_color; }
 
@@ -10,14 +10,15 @@ $base_form_color: $color-dark;
     input, textarea, button, label, fieldset { 
         border: none; 
         font-family: $font_Roboto;
+        font-weight: 300;
     }
 
     input, textarea { 
         font-size: 14px;
         outline: none;
-        padding: 5px;
+        padding: 5px 7.5px;
         width: 100%;
-        color: $color_light;
+        color: $color_dark;
         
     }
 
@@ -35,15 +36,17 @@ $base_form_color: $color-dark;
     }
 
     input[type=text], input[type=email], input[type=tel], textarea {
-        background-color: fade-out(lighten(transparent, 0%),  0);
-        border-radius: 10px;
+        background-color: fade-out(lighten($color-light, 0%),  0);
+        // border-radius: 10px;
         transition: box-shadow .25s linear;
-        box-shadow: -1px -2px 2px darken($base_form_color, 15%),
-                    1px 2px 2px lighten($base_form_color, 3%) ;
-        &:focus {
-            box-shadow: 1px 2px 2px darken($base_form_color, 15%),
-                        -1px -2px 2px lighten($base_form_color, 3%) ;
-        }
+
+
+        // box-shadow: -1px -2px 2px darken($base_form_color, 15%),
+        //             1px 2px 2px lighten($base_form_color, 3%) ;
+        // &:focus {
+        //     box-shadow: 1px 2px 2px darken($base_form_color, 15%),
+        //                 -1px -2px 2px lighten($base_form_color, 3%) ;
+        // }
     }
 
     textarea {
@@ -57,8 +60,9 @@ $base_form_color: $color-dark;
 
     label {
         font-size: 16px;
-        line-height: 16px;
+        line-height: 100%;
         color: $color_light;
+        font-weight: 400;
     }
 
     #booking_form--header {
@@ -74,7 +78,7 @@ $base_form_color: $color-dark;
             background-size: contain;
             background-color: transparent;
             padding: 5px 10px;
-            height: 40px;
+            height: 30px;
             width: calc(100% / 3);
             margin: 0;
             color: $color_light;
@@ -87,22 +91,22 @@ $base_form_color: $color-dark;
 
             
 
-            &:nth-of-type(1) { background-image: url(../images/person_light.svg); 
-                &.active { background-image: url(../images/person_green.svg); } }
-            &:nth-of-type(2) { background-image: url(../images/calendar_light.svg); 
-                &.active { background-image: url(../images/calendar_green.svg); } }
-            &:nth-of-type(3) { background-image: url(../images/tick_light.svg); 
-                &.active { background-image: url(../images/tick_green.svg); } }
+            &:nth-of-type(1) { background-image: url(../images/person_dark.svg); 
+                &.active { background-image: url(../images/person_white.svg); opacity: 1 } }
+            &:nth-of-type(2) { background-image: url(../images/calendar_dark.svg); 
+                &.active { background-image: url(../images/calendar_white.svg); } }
+            &:nth-of-type(3) { background-image: url(../images/tick_dark.svg); 
+                &.active { background-image: url(../images/tick_white.svg); } }
 
             // box-shadow: -1px -2px 2px darken($base_form_color, 20%),
             //             1px 2px 2px lighten($base_form_color, 3%) ;
 
             &:nth-of-type(1) {  
-                &.blocked { background-image: url(../images/person.svg); } }
+                &.blocked { background-image: url(../images/person_locked.svg); } }
             &:nth-of-type(2) {  
-                &.blocked { background-image: url(../images/calendar.svg); } }
+                &.blocked { background-image: url(../images/calendar_locked.svg); } }
             &:nth-of-type(3) {  
-                &.blocked { background-image: url(../images/tick.svg); } }
+                &.blocked { background-image: url(../images/tick_locked.svg); } }
 
 
             &.active { 
@@ -117,15 +121,17 @@ $base_form_color: $color-dark;
         #progress {
             display: block;
             position: absolute;
-            left: calc( 100% / 6 ); bottom: -5px;
-            height: 7.5px;
-            background-color: lighten($color-mid, 20%);
+            left: calc( 100% / 6 ); bottom: -7.5px;
+            height: 5px;
+            background-color: lighten($color-mid, 0);
             width: 0;
             border-radius: 20px;
             transition: width .5s ease-in-out, left .5s ease-in-out;
+            box-shadow: -1px -1px 2px  fade-out( darken($color-mid, 50%) , .1 ) ,
+                        1px 1px 1px lighten($color-mid, 20%);
             &.stage_2 { width: calc( 100% / 3 ); }
             &.stage_3 { width: calc( ( 100% / 3 ) * 2);}
-            &.stage_1 { left: calc( (100% / 6) - 3.5px );  width: 7px }
+            &.stage_1 { left: calc( (100% / 6) - 2.5px );  width: 5px }
         }
     }
 
@@ -162,9 +168,24 @@ $base_form_color: $color-dark;
         .booking_form_row {
             position: relative;
             margin-bottom: 15px;
-            label {
+            overflow: hidden;
+            // padding: 2px;
+            label:not(.no_bg) {
                 position: absolute;
-                top: 5px; left: 5px;
+                // top: ; left: 2px;
+                // left: 1px;
+                background-color: $color-dark;
+                padding: 6px 10px 3px;
+                // border-bottom-left-radius: 10px;
+                // border-top-left-radius: 11px;
+                line-height: 100%;
+                width: 27%;
+                height: 100%;
+                // z-index: -1;
+            }
+            input {
+                padding-left: calc( 27% + 7.5px );
+                // z-index: 1;
             }
         }
 
@@ -211,27 +232,32 @@ $base_form_color: $color-dark;
                         text-align: right;
                         margin-right: 25px;
                         &:after {
-                            content: '>';
+                            content: '';
                             position: absolute;
                             top: 50%; right: -25px;
                             transform: translateY(-50%);
-                            color: $color-mid;
-                            font-size: 30px;
-                            font-weight: 300;
-                            // font-weight: 900;
+                            background-image: url(../images/arrow.svg);
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            width: 30px;
+                            height: 30px;
                         }
                     }
                     &.button_backward {
                         text-align: left;
                         margin-left: 25px;
                         &:after {
-                            content: '<';
+                            content: '';
                             position: absolute;
                             top: 50%; left: -25px;
-                            transform: translateY(-50%);
-                            color: $color-mid;
-                            font-size: 30px;
-                            font-weight: 300;
+                            transform: translateY(-50%) rotateZ( 180deg );
+                            background-image: url(../images/arrow.svg);
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            width: 30px;
+                            height: 30px;
 
                         }
                     }
@@ -242,9 +268,9 @@ $base_form_color: $color-dark;
     }
 
     #booking_form--response_container {
-        background-color: grey;
-        width: 100%;
-        height: 300px;
+        // background-color: grey;
+        // width: 100%;
+        // height: 300px;
     }
 
     #summary_container {
@@ -252,4 +278,213 @@ $base_form_color: $color-dark;
         height: 150px;
     }
 
+    #calendar {
+    
+        position: relative;
+        font-family: $font_Roboto;
+        border-collapse: separate;
+        border-spacing: 0 30px;
+        width: 100%;
+        height: 350px;
+        letter-spacing: .075em;
+        overflow: scroll;
+        display: block;
+        color: $color-dark;
+    
+        scrollbar-width: thin;
+        scrollbar-color: $color-mid $color-mid;
+        scroll-behavior: smooth;
+
+    
+        &_head {
+            font-family: $font-serif;
+            width: 100%;
+            min-height: 50px;
+            text-transform: uppercase;
+            position: fixed;
+            top: 30px; left: 0;
+            background-color: $color-mid;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+
+            &--title {
+                font-weight: 900;
+                font-size: 20px;
+                width: 300px;
+                margin-bottom: 10px;
+            }
+
+            tr, th { 
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+            .calendar_button {
+                background-image: url(../images/arrow.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+
+            #calendar_month_backwards {
+                transform: rotateZ( 180deg );
+            }
+            #calendar_month_forwards {
+
+            }
+    
+        }
+        
+        &_body {
+            position: absolute;
+            top: 70px; left: 0;
+            margin-top: 20px;
+
+            tr {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: space-evenly;
+
+                th{
+                    position: sticky;
+                    display: flex;
+                    flex-direction: column-reverse;
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: $color-white;
+
+                    time {
+                        font-size: 16px;
+                        margin-bottom: 5px;
+                        font-weight: 500;
+                        background-color: $color-dark;
+                        width: 25px;
+                        border-radius: 50%;
+                        color: $color-mid;
+                        padding: 2.5px;
+                        text-align: center;
+                    }
+                }
+    
+                td {
+                    position: relative;
+    
+                    &:not(:last-child):after {
+                        content: '';
+                        position: absolute;
+                        top: -50px; right: 0;
+                        height: calc( 100% + 25px );
+                        border: .5px solid fade-out($color-dark, .2);
+                    }
+                    ul {
+                        position: relative;
+                        margin: 25px 0;
+                       
+                    }
+    
+                    li {
+                        position: relative;
+                        font-size: 14px;
+                        font-weight: 100;
+                        margin: 10px 10px;
+                        padding: 10px 5px;
+                        // border: 1.5px solid $color-light;
+                        // border-radius: 20px;
+    
+                        background-color: fade-out($color-light, .5);
+    
+                        &:hover {
+                            background-color: $color-white;
+                            
+                        }
+                            
+                        label {
+                            display: flex;
+                            flex-direction: row-reverse;
+                            flex-wrap: wrap;
+                            justify-content: space-evenly;
+                            align-items: center;
+                            position: relative;
+                            cursor: pointer;
+    
+                            time {
+                                font-size: 100;
+                                color: $color-dark;
+                                margin: 5px;
+                            }
+                            
+                            input[type=radio] {
+                                // position: absolute;
+                                // top: 50%; left: 50%;
+                                // transform: translate( -50%, -50% );
+                                padding: 100%;
+                                cursor: pointer;
+                                position: absolute;
+                                opacity: 0;
+                                
+                            }
+
+                            .check_box { position: absolute; width: 100%; height: 100%; padding: 15px 20px;}
+                            input[type=radio]:checked ~ .check_box  {
+                                border: 5px solid $color-dark;
+
+                            }
+                            input[type=radio]:checked ~ .check_box:after {
+                                content: '';
+                                background-image: url(../images/tick_green.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: 70%;
+                                position: absolute;
+                                top: -10px; right: -10px;
+                                // width: 25px; height: 25px;
+                                padding: 15px;
+                                border-radius: 50%;
+                                background-color: $color-dark;
+                                // border: 2px solid $color-;
+                                box-shadow: 0px 0px 10px fade-out(black, .75);
+                                z-index: 5;
+                            }
+
+                            
+                            
+
+                        }
+                        
+                    }
+                }
+            }
+        }
+    
+        td, th {
+            min-width: 150px;
+            width: calc(100% / 7);
+        }
+    
+        ul {
+            li {
+                list-style: none;
+            }
+        }
+    }
+
+
 }
+
