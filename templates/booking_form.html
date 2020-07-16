@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../static/css/main.css">
+</head>
+<body>
+<div class="page">
+    <div id="color_test" class="">
+        
+        <section class="middle_container">
+            <div id="booking_form_wrapper" class="strip_450">
+                <div id="booking_form--header" class="strip_50">
+                    <button data-pointsTo="0" class="booking_form_button"></button>
+                    <button data-pointsTo="1" class="booking_form_button"></button>
+                    <button data-pointsTo="2" class="booking_form_button"></button>
+                    
+                    <span id="progress"></span>
+                </div>
+
+                <div id="booking_form--body">
+
+                    <form id="booking_form" action="" method="POST">
+                        <fieldset class="booking_form_page">
+                            <div class="block_400 strip_350 to_middle booking_form_page--inner" style="width: calc(100% / 3);">
+                                <div id="booking_form_details_container">
+                                    <div class="booking_form_row">
+                                        <label for="">Nev *</label>
+                                        <input id="" type="text" name="name"> 
+                                    </div>
+                                    <div class="booking_form_row">
+                                        <label for="">Email *</label>
+                                        <input id="" type="email" name="email"> 
+                                    </div>
+                                    <div class="booking_form_row">
+                                        <label for="">Telefon</label>
+                                        <input id="" type="tel" name="phone"> 
+                                    </div>
+                                    <div id="info_block" class="booking_form_row">
+                                        <div id="info_block--inner">
+                                            <label for="">Info</label>
+                                            <textarea id="" name="info"></textarea> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="booking_form_page--footer strip_50">
+                                <div></div>
+                                <button class="button_forward step_button" data-pointsTo="1">Tovabb</button>
+                            </div>
+                        </fieldset>
+
+                        <div class="booking_form_page">
+                            <div class="block_900 strip_350 to_middle booking_form_page--inner">
+                                <div id="booking_form--response_container">
+
+                                </div>
+                            </div>
+                            <div class="booking_form_page--footer strip_50">
+                                <button class="button_backward step_button" data-pointsTo="0">Vissza</button>
+                                <button class="button_forward step_button" data-pointsTo="2">Tovabb</button>
+                            </div>
+                        </div>
+
+                        <fieldset class="booking_form_page">
+                            <div class="block_600 strip_350 to_middle booking_form_page--inner">
+                                <div id="summary_container">
+
+                                </div>
+                            </div>
+                            <div class="booking_form_page--footer strip_50">
+                                <button class="button_backward step_button" data-pointsTo="1">Vissza</button>
+                                <label class="flex_row" style="max-width: 250px; align-self: center">Elfogadja a felteteleket?
+                                    <input type="checkbox" name="terms" style="width: 40px; cursor: pointer">
+                                    <span class="text_size_extra_small">Szerzodesi feltetelek</span>
+                                </label>
+                                <input class="step_button" type="submit" name="submit" value="Foglalas kuldese">
+                            </div>
+                        </fieldset>
+                    </form>
+
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+</div>
+
+    <script src="../static/js/calendar.js"></script>
+    
+</body>
+</html>

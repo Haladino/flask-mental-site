@@ -1,0 +1,255 @@
+// * { border: .5px solid red }
+$base_form_color: $color-dark;
+
+#color_test { background-color: $base_form_color; }
+
+#booking_form_wrapper {
+
+    
+
+    input, textarea, button, label, fieldset { 
+        border: none; 
+        font-family: $font_Roboto;
+    }
+
+    input, textarea { 
+        font-size: 14px;
+        outline: none;
+        padding: 5px;
+        width: 100%;
+        color: $color_light;
+        
+    }
+
+    input {
+        // border-bottom: 2px solid $color_dark;
+        &[type=text], &[type=email], &[type=tel] {
+            line-height: 15px;
+        }
+        &[type=submit] {
+            width: 200px;
+            padding: 15px;
+            border: none;
+            background-color: $color_light;
+        }
+    }
+
+    input[type=text], input[type=email], input[type=tel], textarea {
+        background-color: fade-out(lighten(transparent, 0%),  0);
+        border-radius: 10px;
+        transition: box-shadow .25s linear;
+        box-shadow: -1px -2px 2px darken($base_form_color, 15%),
+                    1px 2px 2px lighten($base_form_color, 3%) ;
+        &:focus {
+            box-shadow: 1px 2px 2px darken($base_form_color, 15%),
+                        -1px -2px 2px lighten($base_form_color, 3%) ;
+        }
+    }
+
+    textarea {
+        line-height: 20px;
+        overflow-wrap: normal;
+        height: 100px;
+        resize: none;
+
+        // border: .5px solid $color_dark;
+    }
+
+    label {
+        font-size: 16px;
+        line-height: 16px;
+        color: $color_light;
+    }
+
+    #booking_form--header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        position: relative;
+        button {
+            // background-color: darken($color-mid, 10%);
+            
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-color: transparent;
+            padding: 5px 10px;
+            height: 40px;
+            width: calc(100% / 3);
+            margin: 0;
+            color: $color_light;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            border-radius: 20px;
+
+            
+
+            
+
+            &:nth-of-type(1) { background-image: url(../images/person_light.svg); 
+                &.active { background-image: url(../images/person_green.svg); } }
+            &:nth-of-type(2) { background-image: url(../images/calendar_light.svg); 
+                &.active { background-image: url(../images/calendar_green.svg); } }
+            &:nth-of-type(3) { background-image: url(../images/tick_light.svg); 
+                &.active { background-image: url(../images/tick_green.svg); } }
+
+            // box-shadow: -1px -2px 2px darken($base_form_color, 20%),
+            //             1px 2px 2px lighten($base_form_color, 3%) ;
+
+            &:nth-of-type(1) {  
+                &.blocked { background-image: url(../images/person.svg); } }
+            &:nth-of-type(2) {  
+                &.blocked { background-image: url(../images/calendar.svg); } }
+            &:nth-of-type(3) {  
+                &.blocked { background-image: url(../images/tick.svg); } }
+
+
+            &.active { 
+                // &:nth-of-type(1) { background-image: url(../images/person.svg); }
+                // &button:nth-of-type(2) { background-image: url(../images/calendar.svg); }
+                // &button:nth-of-type(3) { background-image: url(../images/tick.svg); }
+                
+            }
+            &.blocked { }
+        }
+
+        #progress {
+            display: block;
+            position: absolute;
+            left: calc( 100% / 6 ); bottom: -5px;
+            height: 7.5px;
+            background-color: lighten($color-mid, 20%);
+            width: 0;
+            border-radius: 20px;
+            transition: width .5s ease-in-out, left .5s ease-in-out;
+            &.stage_2 { width: calc( 100% / 3 ); }
+            &.stage_3 { width: calc( ( 100% / 3 ) * 2);}
+            &.stage_1 { left: calc( (100% / 6) - 3.5px );  width: 7px }
+        }
+    }
+
+    #booking_form--body {
+        position: relative;
+    }
+
+    #booking_form {
+
+        &_details_container {
+            // background-color: $color_mid;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        #info_block {
+            position: relative;
+            &.hidden { 
+                #info_block--inner {
+                    display: none;
+                }
+
+                &:after {
+                    content: 'Ha extra infot szeretne adni katt ide';
+                    position: relative;
+                    width: 200px;
+                    color: $color_light;
+                }
+             }
+        }
+
+
+
+        .booking_form_row {
+            position: relative;
+            margin-bottom: 15px;
+            label {
+                position: absolute;
+                top: 5px; left: 5px;
+            }
+        }
+
+
+
+        .booking_form_page {
+            
+            position: relative;
+            top: 0; left: 0;
+            width: 100%;
+
+            &--inner {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-width: 320px;
+            }
+
+            &--footer {
+                height: 50px;
+                background-color: transparent;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                .step_button {
+                    position: relative;
+                    font-family: $font_Roboto;
+                    font-weight: 700;
+                    padding: 5px 10px;
+                    height: 25px;
+                    margin: 0;
+                    color: $color-light;
+                    background-color: transparent;
+                    min-width: 33.33%;
+                    text-transform: uppercase;
+                    letter-spacing: .1em;
+                    line-height: 100%;
+                    cursor: pointer;
+                    &:active, &:focus { outline: none; }
+                    &[type=submit] {background-color: $color_light; color: $color-dark; }
+                    &.button_forward {
+                        text-align: right;
+                        margin-right: 25px;
+                        &:after {
+                            content: '>';
+                            position: absolute;
+                            top: 50%; right: -25px;
+                            transform: translateY(-50%);
+                            color: $color-mid;
+                            font-size: 30px;
+                            font-weight: 300;
+                            // font-weight: 900;
+                        }
+                    }
+                    &.button_backward {
+                        text-align: left;
+                        margin-left: 25px;
+                        &:after {
+                            content: '<';
+                            position: absolute;
+                            top: 50%; left: -25px;
+                            transform: translateY(-50%);
+                            color: $color-mid;
+                            font-size: 30px;
+                            font-weight: 300;
+
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    #booking_form--response_container {
+        background-color: grey;
+        width: 100%;
+        height: 300px;
+    }
+
+    #summary_container {
+        width: 100%;
+        height: 150px;
+    }
+
+}

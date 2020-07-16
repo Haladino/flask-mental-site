@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Roboto:wght@100;300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');$color_dark : #0D1700;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+$color_dark : #0D1700;
 $color_mid : #65AB12;
 $color_light : #DAFFAE;
 $color_white : white;
@@ -63,6 +64,7 @@ a {
     text-decoration: none;
     font-weight: 500;
     color: $color_light;
+    outline: none;
     &:hover, &:visited { 
         transition: color .2s ease;
         text-decoration: none;
@@ -717,6 +719,7 @@ button {
     &_300 { min-height: 300px; }
     &_350 { min-height: 350px; }
     &_400 { min-height: 400px; }
+    &_450 { min-height: 450px; }
 }
 
 #hero_image {
@@ -958,6 +961,8 @@ button {
     }
 
 }
+
+@import '_calendar.scss';
 
 @media screen and ( max-width: 900px ) and ( max-height: 600px ) , ( orientation: landscape ) and ( max-height: 600px ) {
     #hero_image {
