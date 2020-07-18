@@ -879,6 +879,7 @@ button {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  align-items: center;
   position: relative; }
   #booking_form_wrapper #booking_form--header button {
     background-position: center;
@@ -889,11 +890,21 @@ button {
     height: 30px;
     width: calc(100% / 3);
     margin: 0;
-    color: #DAFFAE;
+    color: white;
     font-size: 14px;
     cursor: pointer;
     outline: none;
-    border-radius: 20px; }
+    border-radius: 20px;
+    position: relative; }
+    #booking_form_wrapper #booking_form--header button:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 40px;
+      background-color: #65AB12;
+      z-index: -1; }
     #booking_form_wrapper #booking_form--header button:nth-of-type(1) {
       background-image: url(../images/person_dark.svg); }
       #booking_form_wrapper #booking_form--header button:nth-of-type(1).active {
@@ -917,11 +928,12 @@ button {
     display: block;
     position: absolute;
     left: calc( 100% / 6);
-    bottom: -7.5px;
-    height: 5px;
+    top: 50%;
+    height: 2.5px;
     background-color: #65ab12;
     width: 0;
     border-radius: 20px;
+    z-index: -2;
     transition: width .5s ease-in-out, left .5s ease-in-out;
     box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.9), 1px 1px 1px #99ea39; }
     #booking_form_wrapper #booking_form--header #progress.stage_2 {
@@ -930,7 +942,7 @@ button {
       width: calc( ( 100% / 3 ) * 2); }
     #booking_form_wrapper #booking_form--header #progress.stage_1 {
       left: calc( (100% / 6) - 2.5px);
-      width: 5px; }
+      width: 2.5px; }
 
 #booking_form_wrapper #booking_form--body {
   position: relative; }
@@ -958,10 +970,10 @@ button {
     background-color: #0D1700;
     padding: 6px 10px 3px;
     line-height: 100%;
-    width: 27%;
+    width: 30%;
     height: 100%; }
   #booking_form_wrapper #booking_form .booking_form_row input {
-    padding-left: calc( 27% + 7.5px); }
+    padding-left: calc( 30% + 7.5px); }
 
 #booking_form_wrapper #booking_form .booking_form_page {
   position: relative;
@@ -987,7 +999,7 @@ button {
       padding: 5px 10px;
       height: 25px;
       margin: 0;
-      color: #DAFFAE;
+      color: white;
       background-color: transparent;
       min-width: 33.33%;
       text-transform: uppercase;
@@ -1012,8 +1024,8 @@ button {
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;
-          width: 30px;
-          height: 30px; }
+          width: 25px;
+          height: 25px; }
       #booking_form_wrapper #booking_form .booking_form_page--footer .step_button.button_backward {
         text-align: left;
         margin-left: 25px; }
@@ -1037,16 +1049,14 @@ button {
 #booking_form_wrapper #calendar {
   position: relative;
   font-family: "Roboto", "Helvetica", sans-serif;
-  border-collapse: separate;
-  border-spacing: 0 30px;
-  width: 100%;
+  border-collapse: collapse;
   height: 350px;
   letter-spacing: .075em;
   overflow: scroll;
   display: block;
   color: #0D1700;
   scrollbar-width: thin;
-  scrollbar-color: #65AB12 #65AB12;
+  scrollbar-color: #0D1700 #65AB12;
   scroll-behavior: smooth; }
   #booking_form_wrapper #calendar_head {
     font-family: "Merriweather", serif;
@@ -1054,20 +1064,13 @@ button {
     min-height: 50px;
     text-transform: uppercase;
     position: fixed;
-    top: 30px;
+    top: 25px;
     left: 0;
     background-color: #65AB12;
     z-index: 1;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center; }
-    #booking_form_wrapper #calendar_head--title {
-      font-weight: 900;
-      font-size: 20px;
-      width: 300px;
-      margin-bottom: 10px; }
+    flex-direction: column;
+    flex-wrap: nowrap; }
     #booking_form_wrapper #calendar_head tr, #booking_form_wrapper #calendar_head th {
       display: flex;
       flex-direction: row;
@@ -1075,28 +1078,38 @@ button {
       align-items: center;
       justify-content: center;
       width: 100%; }
+    #booking_form_wrapper #calendar_head--title {
+      font-weight: 900;
+      font-size: 14px;
+      width: 500px;
+      margin: 10px 0 2px; }
+    #booking_form_wrapper #calendar_head--bottom_row {
+      font-family: "Roboto", "Helvetica", sans-serif;
+      font-size: 15px;
+      margin-bottom: 5px; }
+      #booking_form_wrapper #calendar_head--bottom_row time {
+        font-weight: 700; }
     #booking_form_wrapper #calendar_head .calendar_button {
       background-image: url(../images/arrow.svg);
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
-      width: 20px;
-      height: 20px;
+      padding: 8px 40px;
       cursor: pointer; }
     #booking_form_wrapper #calendar_head #calendar_month_backwards {
       transform: rotateZ(180deg); }
   #booking_form_wrapper #calendar_body {
     position: absolute;
-    top: 70px;
+    top: 85px;
     left: 0;
-    margin-top: 20px; }
+    width: 100%; }
     #booking_form_wrapper #calendar_body tr {
       position: relative;
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
-      justify-content: space-evenly; }
+      justify-content: flex-start; }
       #booking_form_wrapper #calendar_body tr th {
         position: sticky;
         display: flex;
@@ -1104,20 +1117,22 @@ button {
         flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
-        font-size: 16px;
+        font-size: 12px;
         font-weight: 700;
         text-transform: uppercase;
-        color: white; }
+        color: white;
+        margin-bottom: 10px; }
         #booking_form_wrapper #calendar_body tr th time {
-          font-size: 16px;
-          margin-bottom: 5px;
+          font-size: 14px;
+          margin: 0 15px 7.5px;
           font-weight: 500;
           background-color: #0D1700;
           width: 25px;
           border-radius: 50%;
           color: #65AB12;
           padding: 2.5px;
-          text-align: center; }
+          text-align: center;
+          align-self: flex-start; }
       #booking_form_wrapper #calendar_body tr td {
         position: relative; }
         #booking_form_wrapper #calendar_body tr td:not(:last-child):after {
@@ -1125,17 +1140,16 @@ button {
           position: absolute;
           top: -50px;
           right: 0;
-          height: calc( 100% + 25px);
-          border: 0.5px solid rgba(13, 23, 0, 0.8); }
+          height: calc( 100% + 50px);
+          border: 0.5px solid rgba(13, 23, 0, 0.1); }
         #booking_form_wrapper #calendar_body tr td ul {
-          position: relative;
-          margin: 25px 0; }
+          position: relative; }
         #booking_form_wrapper #calendar_body tr td li {
           position: relative;
-          font-size: 14px;
-          font-weight: 100;
-          margin: 10px 10px;
-          padding: 10px 5px;
+          font-size: 12px;
+          font-weight: 500;
+          margin: 5px 15px;
+          padding: 7.5px 5px;
           background-color: rgba(218, 255, 174, 0.5); }
           #booking_form_wrapper #calendar_body tr td li:hover {
             background-color: white; }
@@ -1148,7 +1162,8 @@ button {
             position: relative;
             cursor: pointer; }
             #booking_form_wrapper #calendar_body tr td li label time {
-              font-size: 100;
+              font-size: 12px;
+              font-weight: 500;
               color: #0D1700;
               margin: 5px; }
             #booking_form_wrapper #calendar_body tr td li label input[type=radio] {
@@ -1178,7 +1193,7 @@ button {
               box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
               z-index: 5; }
   #booking_form_wrapper #calendar td, #booking_form_wrapper #calendar th {
-    min-width: 150px;
+    min-width: 125px;
     width: calc(100% / 7); }
   #booking_form_wrapper #calendar ul li {
     list-style: none; }

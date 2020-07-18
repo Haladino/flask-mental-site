@@ -22,35 +22,43 @@
             details.setValidation( 'form', document.querySelectorAll('input') );
             details.onError = function() {
                 // details.stageError
+                // inserts error to the page is any
                 console.log( details.stageError );
             }
             details.setFunction(
                 () => {
-
+                    // no set function 
                 },
                 this.UI.pages[0]
             );
             
             const calendar = this.module.createStage( 'calendar' );
-            calendar.setValidation( 'calendar' );
+            calendar.setValidation( 'calendar', document.querySelectorAll('input[type=radio]') );
             calendar.onError = function() {
+                // displays no select error
+                console.log( calendar.stageError );
 
             }
             calendar.setFunction(
                 () => {
                     // get available dates
+
+                    document.querySelectorAll('input[type=radio]').forEach( r => { r.checked = false; } ); // this waits for response
                 },
                 this.UI.pages[1]
             );
 
             const checkout = this.module.createStage( 'checkout' );
+            checkout.setValidation( 'ticked', document.querySelectorAll('input[name=terms]') );
             checkout.onError = function() {
-                // Ajax error response
+                //stage error goes here is terms are not ticked
+                console.log( checkout.stageError );
+
             }
             checkout.setFunction(
                 () => {
-                    // send form
-                    // Ajax request
+                    // request summary
+                    // on form submit(listener) validation update if error that goes to onError, if 
                 },
                 this.UI.pages[2]
             );
@@ -62,6 +70,9 @@
 
         }
 
+
+        // form on submit update validation , if checkout comes out true submits form and gets result
+        // Result is validation errors of succesfull sending
 
 
     }
@@ -110,16 +121,20 @@
                             this.unlockNextStage( key );
                             this.setProgressStage( this.stages[ key ].nextStage.stageIndex + 1);
                         
-                        } else {
-
-                            this.stages[ key ].run();
                         }
+
+                        // if( this.stages[ key ].nextStage === undefined )
+                        // {
+                        //     this.stages[ key ].run();
+                        // } 
 
                     }
 
                     if( typeof(result) == 'object' )
                     {
                         //  Meaning the Validation is False and returns errors
+                        //  put out errors
+                        this.stages[ key ].onError();
                     }
                     
                 }
@@ -133,8 +148,10 @@
             this.stages[ key ].nextStage.unlockStage();
             this.stages[ key ].stagePage.close();
             this.stages[ key ].nextStage.stagePage.open();
-
             this.application.UI.findOpenedPage();
+
+            // if( this.stages[ key ].nextStage.nextStage !== undefined ) 
+            this.stages[ key ].nextStage.run();
         }
 
 
@@ -176,14 +193,14 @@
             this.validation = undefined;
             this.isValid = false;
             this.stageFunction = undefined;
-            this.nextStage = {};
+            this.nextStage = undefined;
             this.stageError = null;
             this.onError = undefined;
         }
 
         run()
         {
-            this.stageFunction();
+            if ( this.stageFunction ) this.stageFunction();
         }
 
         validateStage()
@@ -199,7 +216,7 @@
                     this.isValid = false;
                     this.stageError = result;
 
-                    if ( this.onError && typeof(this.onError) == 'function' ) this.onError();
+                    // if ( this.onError && typeof(this.onError) == 'function' ) this.onError();
                 
                 } else {
                     this.isValid = true;
@@ -294,36 +311,48 @@
             const types = {
                 form : function( inputs ) 
                 {
-                    let result = true;
-                    let checks = {};
+                    let result = {};
 
                     inputs.forEach( input => {
-                        
-                        switch( input.type )
-                        {
-                            case 'text'  : checks[input.name] = this.validateText( input.value || input.textContent ); break;
-                            case 'tel'   : checks[input.name] = this.validateTel( input.value || input.textContent ); break;
-                            case 'email' : checks[input.name] = this.validateEmail( input.value || input.textContent ); break;
-                            default      : checks[input.name] = this.validateString( input.value || input.textContent );
+
+                        if( !this.isEmpty( input.value || input.textContent ) ) 
+                        {                      
+                            switch( input.type )
+                            {
+                                case 'text'  : if( !this.validateText( input.value || input.textContent ) )  result[ input.name + 'Error' ] = 'The field contains invalid characters'; break;
+                                case 'tel'   : if( this.validateTel( input.value || input.textContent ) )   result[ input.name + 'Error' ] = 'Not a valid phone number'; break;
+                                case 'email' : if( !this.validateEmail( input.value || input.textContent ) ) result[ input.name + 'Error' ] = 'Not a valid email address';  break;
+                                default      : if( !this.validateString( input.value || input.textContent ) ) result[ input.name + 'Error' ] = 'Invalid characters in field'; break;
+                            }
+
+                        } else {
+
+                            if( input.required ) result[ input.name + 'Error' ] = 'Field is required';
                         }
+
                     });
 
-                    for( let key in checks )
-                    {
-                        if( checks[ key ] != true ) 
-                        {
-                            if( typeof(result) !== 'object' ) result = {};
+                    return ( Object.keys( result ).length === 0 ) ? true : result;
 
-                            result[key + 'Error'] = checks[ key ];
-                        }
-                    }
-
-                    return true  // returns true for test
-                    return result;   // Gonna be true or False
                 },
-                calendar : function() {
-                    return true; // returns true for test
-                }
+                calendar : function( radios ) {
+
+                    for( let i = 0; i < radios.length; i ++ )
+                    {
+                        if( radios[ i ].checked ) return true;
+                    }
+                    
+                    return { calendarError : 'Please select a time' };
+
+                },
+                ticked : function( boxes ) {
+
+                    boxes.forEach( b => {
+                        if( !b.checked ) return 'Please check the box'; 
+                    });
+
+                    return true;
+                } 
             }
 
             this.validationType = validationType;
@@ -333,13 +362,19 @@
 
         }
 
+        isEmpty( input )
+        {
+            const string = input.trim();
+            return string == '' || string == ' ';
+        }
+
         validateText( input )
         {
-            let string = input.trim();
+            const string = input.trim();
 
-            if( string == '' || string == ' ') return 'Field cant be empty';
+            // if( string == '' || string == ' ') return 'Field cant be empty';
             
-            let regExp = new RegExp('[^A-Za-z\-\_ áéíóöőúüűÁÉÍÓÖŐÜÚŰ]');
+            const regExp = new RegExp('[^A-Za-z\-\_ áéíóöőúüűÁÉÍÓÖŐÜÚŰ]');
 
             if ( regExp.test( string ) )
             {
@@ -351,18 +386,23 @@
 
         validateTel( input )
         {
-            let number = input.trim();
-            let regExp = new RegExp('[^0-9\-\/]');
+            const number = input.trim();
+            const regExp = new RegExp('[^0-9-\/]');
 
-            if ( Number.isNaN( number ) ) return 'Not a number';
-            if ( regExp.test( number ) ) return 'Invalid characters';
+            // if ( Number.isNaN( number ) ) return 'Not a number';
+            // if ( regExp.test( number ) ) return 'Invalid characters';
 
-            return true;
+            return regExp.test( number );
         }
 
         validateEmail( input )
         {
-            return true;
+            const email = input.trim();
+            const regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+            // if ( regExp.test( email ) ) return true;
+
+            return regExp.test( email );
         }
 
         validateString( input )
@@ -414,7 +454,7 @@
 
         togglePages( target )
         {
-            if ( !this.pages[ target.getAttribute( 'data-pointsTo') ].isBlocked )
+            if ( this.pages[ target.getAttribute( 'data-pointsTo') ] && !this.pages[ target.getAttribute( 'data-pointsTo') ].isBlocked )
             {
                 this.closeOpenedPage();
                 this.openPage( target.getAttribute( 'data-pointsTo' ) );

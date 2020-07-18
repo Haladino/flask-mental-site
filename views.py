@@ -27,3 +27,7 @@ def index():
 @app.route('/szolgaltatasok')
 def szolgaltatasok():
     return render_template('services.html', name="Szolgaltatasok", configuration=c, data=data)
+
+@app.route('/bookingform')
+def bookingform():
+    return render_template('booking_form.html', name="Booking_form", configuration=c, data=data)

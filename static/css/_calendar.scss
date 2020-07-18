@@ -69,6 +69,7 @@ $base_form_color: $color-mid;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+        align-items: center;
         position: relative;
         button {
             // background-color: darken($color-mid, 10%);
@@ -81,14 +82,23 @@ $base_form_color: $color-mid;
             height: 30px;
             width: calc(100% / 3);
             margin: 0;
-            color: $color_light;
+            color: $color_white;
             font-size: 14px;
             cursor: pointer;
             outline: none;
             border-radius: 20px;
+            position: relative;
 
-            
+            &:after { 
+                content: '';
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate( -50%, -50% );
+                padding: 40px;
+                background-color: $color-mid;
+                z-index: -1;
 
+            }
             
 
             &:nth-of-type(1) { background-image: url(../images/person_dark.svg); 
@@ -121,17 +131,18 @@ $base_form_color: $color-mid;
         #progress {
             display: block;
             position: absolute;
-            left: calc( 100% / 6 ); bottom: -7.5px;
-            height: 5px;
+            left: calc( 100% / 6 ); top: 50%;
+            height: 2.5px;
             background-color: lighten($color-mid, 0);
             width: 0;
             border-radius: 20px;
+            z-index: -2;
             transition: width .5s ease-in-out, left .5s ease-in-out;
             box-shadow: -1px -1px 2px  fade-out( darken($color-mid, 50%) , .1 ) ,
                         1px 1px 1px lighten($color-mid, 20%);
             &.stage_2 { width: calc( 100% / 3 ); }
             &.stage_3 { width: calc( ( 100% / 3 ) * 2);}
-            &.stage_1 { left: calc( (100% / 6) - 2.5px );  width: 5px }
+            &.stage_1 { left: calc( (100% / 6) - 2.5px );  width: 2.5px }
         }
     }
 
@@ -179,12 +190,12 @@ $base_form_color: $color-mid;
                 // border-bottom-left-radius: 10px;
                 // border-top-left-radius: 11px;
                 line-height: 100%;
-                width: 27%;
+                width: 30%;
                 height: 100%;
                 // z-index: -1;
             }
             input {
-                padding-left: calc( 27% + 7.5px );
+                padding-left: calc( 30% + 7.5px );
                 // z-index: 1;
             }
         }
@@ -219,7 +230,7 @@ $base_form_color: $color-mid;
                     padding: 5px 10px;
                     height: 25px;
                     margin: 0;
-                    color: $color-light;
+                    color: $color-white;
                     background-color: transparent;
                     min-width: 33.33%;
                     text-transform: uppercase;
@@ -240,8 +251,8 @@ $base_form_color: $color-mid;
                             background-size: contain;
                             background-repeat: no-repeat;
                             background-position: center;
-                            width: 30px;
-                            height: 30px;
+                            width: 25px;
+                            height: 25px;
                         }
                     }
                     &.button_backward {
@@ -267,24 +278,23 @@ $base_form_color: $color-mid;
 
     }
 
-    #booking_form--response_container {
-        // background-color: grey;
-        // width: 100%;
-        // height: 300px;
-    }
-
     #summary_container {
         width: 100%;
         height: 150px;
     }
 
+    #booking_form--response_container {
+        // position: relative;
+    }
+
     #calendar {
     
+        // * { border: .5px solid red; }
+
         position: relative;
         font-family: $font_Roboto;
-        border-collapse: separate;
-        border-spacing: 0 30px;
-        width: 100%;
+        border-collapse: collapse;
+        // width: calc( 100% + 20px );
         height: 350px;
         letter-spacing: .075em;
         overflow: scroll;
@@ -292,7 +302,7 @@ $base_form_color: $color-mid;
         color: $color-dark;
     
         scrollbar-width: thin;
-        scrollbar-color: $color-mid $color-mid;
+        scrollbar-color: $color-dark $color-mid;
         scroll-behavior: smooth;
 
     
@@ -302,22 +312,15 @@ $base_form_color: $color-mid;
             min-height: 50px;
             text-transform: uppercase;
             position: fixed;
-            top: 30px; left: 0;
+            top: 25px; left: 0;
             background-color: $color-mid;
             z-index: 1;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             flex-wrap: nowrap;
-            align-items: center;
-            justify-content: center;
-
-            &--title {
-                font-weight: 900;
-                font-size: 20px;
-                width: 300px;
-                margin-bottom: 10px;
-            }
-
+            // align-content: center;
+            // justify-items: center;
+            // width: calc( 100% + 20px );
             tr, th { 
                 display: flex;
                 flex-direction: row;
@@ -326,18 +329,35 @@ $base_form_color: $color-mid;
                 justify-content: center;
                 width: 100%;
             }
+
+            &--title {
+                font-weight: 900;
+                font-size: 14px;
+                width: 500px;
+                margin: 10px 0 2px;
+            }
+
+            &--bottom_row {
+                font-family: $font-Roboto;
+                font-size: 15px;
+                time { font-weight: 700; }
+                margin-bottom: 5px;
+            }
+
             .calendar_button {
                 background-image: url(../images/arrow.svg);
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: center;
-                width: 20px;
-                height: 20px;
+                // width: 17px;
+                // height: 17px;
+                padding: 8px 40px;
                 cursor: pointer;
             }
 
             #calendar_month_backwards {
                 transform: rotateZ( 180deg );
+ 
             }
             #calendar_month_forwards {
 
@@ -347,8 +367,9 @@ $base_form_color: $color-mid;
         
         &_body {
             position: absolute;
-            top: 70px; left: 0;
-            margin-top: 20px;
+            top: 85px; left: 0;
+            // transform: translateX( -50% );
+            width: 100%;
 
             tr {
                 position: relative;
@@ -356,7 +377,7 @@ $base_form_color: $color-mid;
                 flex-direction: row;
                 flex-wrap: nowrap;
                 align-items: center;
-                justify-content: space-evenly;
+                justify-content: flex-start;
 
                 th{
                     position: sticky;
@@ -365,14 +386,15 @@ $base_form_color: $color-mid;
                     flex-wrap: nowrap;
                     justify-content: center;
                     align-items: center;
-                    font-size: 16px;
+                    font-size: 12px;
                     font-weight: 700;
                     text-transform: uppercase;
                     color: $color-white;
+                    margin-bottom: 10px;
 
                     time {
-                        font-size: 16px;
-                        margin-bottom: 5px;
+                        font-size: 14px;
+                        margin: 0 15px 7.5px;
                         font-weight: 500;
                         background-color: $color-dark;
                         width: 25px;
@@ -380,6 +402,7 @@ $base_form_color: $color-mid;
                         color: $color-mid;
                         padding: 2.5px;
                         text-align: center;
+                        align-self: flex-start;
                     }
                 }
     
@@ -390,24 +413,19 @@ $base_form_color: $color-mid;
                         content: '';
                         position: absolute;
                         top: -50px; right: 0;
-                        height: calc( 100% + 25px );
-                        border: .5px solid fade-out($color-dark, .2);
+                        height: calc( 100% + 50px );
+                        border: .5px solid fade-out($color-dark, .9);
                     }
                     ul {
-                        position: relative;
-                        margin: 25px 0;
-                       
+                        position: relative;                       
                     }
     
                     li {
                         position: relative;
-                        font-size: 14px;
-                        font-weight: 100;
-                        margin: 10px 10px;
-                        padding: 10px 5px;
-                        // border: 1.5px solid $color-light;
-                        // border-radius: 20px;
-    
+                        font-size: 12px;
+                        font-weight: 500;
+                        margin: 5px 15px;
+                        padding: 7.5px 5px;  
                         background-color: fade-out($color-light, .5);
     
                         &:hover {
@@ -425,15 +443,13 @@ $base_form_color: $color-mid;
                             cursor: pointer;
     
                             time {
-                                font-size: 100;
+                                font-size: 12px;
+                                font-weight: 500;
                                 color: $color-dark;
                                 margin: 5px;
                             }
                             
                             input[type=radio] {
-                                // position: absolute;
-                                // top: 50%; left: 50%;
-                                // transform: translate( -50%, -50% );
                                 padding: 100%;
                                 cursor: pointer;
                                 position: absolute;
@@ -454,17 +470,13 @@ $base_form_color: $color-mid;
                                 background-size: 70%;
                                 position: absolute;
                                 top: -10px; right: -10px;
-                                // width: 25px; height: 25px;
                                 padding: 15px;
                                 border-radius: 50%;
                                 background-color: $color-dark;
-                                // border: 2px solid $color-;
                                 box-shadow: 0px 0px 10px fade-out(black, .75);
                                 z-index: 5;
                             }
-
-                            
-                            
+                           
 
                         }
                         
@@ -474,7 +486,7 @@ $base_form_color: $color-mid;
         }
     
         td, th {
-            min-width: 150px;
+            min-width: 125px;
             width: calc(100% / 7);
         }
     
